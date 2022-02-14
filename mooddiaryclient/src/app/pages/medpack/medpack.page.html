@@ -27,11 +27,11 @@
   </form> -->
   <ion-datetime #Datetime presentation="time-date" size="cover" (ionChange)="dateValue = formatDate(Datetime.value)">
     <ion-buttons slot="buttons">
-      <ion-button (click)="pillTaken()">Pill taken</ion-button>
+      <ion-button (click)="insertNewDate(date)">Pill taken</ion-button>
     </ion-buttons>
   </ion-datetime>
   <ion-item>
-    <ion-text slot="start"> {{ dateValue }}</ion-text>
+    <ion-text slot="start" *ngFor="let date of dates"> {{date.takenDate}}</ion-text>
   </ion-item>
 
 

@@ -19,28 +19,38 @@ export class MedpackPage implements OnInit {
   }
 
   public dates: any;
-  constructor(public data: DataService, private navCtrl: NavController) { }
+  constructor(public data: DataService, private navCtrl: NavController) {
+    this.newDate;
+   }
+
+   public newDate(){
+    this.date = {
+      isTaken:'true',
+      takenDate:'',
+    };
+  }
 
   ngOnInit() {}
 
-  // ionViewDidEnter(){
-  //   this.data.getAllDates().subscribe((res) => {
-  //   console.log(res);
-  //   this.dates = res;
-  // })}
+  ionViewDidEnter(){
+    this.data.getAllDates().subscribe((res) => {
+    console.log(res);
+    this.dates = res;
+  })}
 
-  pillTaken() {
-    this.datetime.confirm(true);
-    console.log(this.datetime);
-  }
-/*
+  // pillTaken() {
+  //   this.datetime.confirm(true);
+  //   console.log(this.datetime);
+  // }
+
   //insertnewdate einfügen wenn backend funktionert
-  public insertNewDate(dateValue){
-    this.data.insertNewDate(dateValue).subscribe((res) => {
+  public insertNewDate(date){
+    this.datetime.confirm(true);
+    this.data.insertNewDate(date).subscribe((res) => {
       console.log(res);
       this.date = res;
     })
-  }*/
+  }
 
 
   // changeStatus(){
