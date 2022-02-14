@@ -7,32 +7,23 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <!-- <form>
-    <ion-item button="true" id="open-date-input">
-      <ion-label>Date</ion-label>
-      <ion-text slot="end">{{ dateValue }}</ion-text>
-      <ion-popover trigger="open-date-input" show-backdrop="false">
-        <ng-template>
-          <ion-datetime
-            #popoverDatetime
-            presentation="time-date"
-            (ionChange)="dateValue = formatDate(popoverDatetime.value)"
-          ></ion-datetime>
-        </ng-template>
-      </ion-popover>
-    </ion-item>
-    <ion-item *ngFor="let date of dates">
-      <ion-text slot="start"> {{ dateValue }}</ion-text>
-    </ion-item>
-  </form> -->
   <ion-datetime #Datetime presentation="time-date" size="cover" (ionChange)="dateValue = formatDate(Datetime.value)">
-    <ion-buttons slot="buttons">
-      <ion-button (click)="insertNewDate(date)">Pill taken</ion-button>
-    </ion-buttons>
   </ion-datetime>
-  <ion-item>
-    <ion-text slot="start" *ngFor="let date of dates"> {{date.takenDate}}</ion-text>
-  </ion-item>
+  <ion-row>
+    <ion-col class="pilltaken">
+      <ion-button (click)="insertNewDate(date)">Pill taken</ion-button>
+    </ion-col>
+  </ion-row>
+  <ion-list>
+    <ion-item *ngFor="let date of dates">
+      <ion-label>
+        <p>Taken at</p>
+        <h2>{{date.takenDate}}</h2>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+
+
 
 
 

@@ -26,7 +26,9 @@ export class MedpackPage implements OnInit {
    public newDate(){
     this.date = {
       isTaken:'true',
-      takenDate:'',
+      //ausgewähltes date von frontend holen und in takenDate speichern
+     // takenDate: this.dateValue,
+     takenDate:'',
     };
   }
 
