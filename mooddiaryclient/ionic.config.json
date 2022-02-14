@@ -1,0 +1,7 @@
+{
+  "name": "mooddiary",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

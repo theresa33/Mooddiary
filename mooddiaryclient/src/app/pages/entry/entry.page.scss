@@ -1,0 +1,23 @@
+.header-class-toolbar{
+  --min-height: 70px;
+ }
+
+ .header-class-title{
+  background-color: #69DC9E;
+ }
+
+ion-item-divider{
+  padding: 20px;
+}
+
+ion-toolbar{
+  --background: #69DC9E;
+  //--color: white;
+  min-height: 70px;
+  font-size: large;
+  align-items: center;
+}
+
+
+
+

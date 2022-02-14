@@ -1,0 +1,102 @@
+<ion-header>
+  <ion-toolbar class="header-class-toolbar">
+    <ion-title class="header-class-title">
+      Medpack
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <!-- <form>
+    <ion-item button="true" id="open-date-input">
+      <ion-label>Date</ion-label>
+      <ion-text slot="end">{{ dateValue }}</ion-text>
+      <ion-popover trigger="open-date-input" show-backdrop="false">
+        <ng-template>
+          <ion-datetime
+            #popoverDatetime
+            presentation="time-date"
+            (ionChange)="dateValue = formatDate(popoverDatetime.value)"
+          ></ion-datetime>
+        </ng-template>
+      </ion-popover>
+    </ion-item>
+    <ion-item *ngFor="let date of dates">
+      <ion-text slot="start"> {{ dateValue }}</ion-text>
+    </ion-item>
+  </form> -->
+  <ion-datetime #Datetime presentation="time-date" size="cover" (ionChange)="dateValue = formatDate(Datetime.value)">
+    <ion-buttons slot="buttons">
+      <ion-button (click)="pillTaken()">Pill taken</ion-button>
+    </ion-buttons>
+  </ion-datetime>
+  <ion-item>
+    <ion-text slot="start"> {{ dateValue }}</ion-text>
+  </ion-item>
+
+
+
+ <!-- <ion-grid class="medpack">
+    <ion-row>
+      <ion-col>
+        <div>
+          <ion-button (click)="changeStatus()" [ngStyle]="{'background-color': buttonColor}">
+           <ion-icon name="radio-button-off-outline"></ion-icon>
+          </ion-button>
+        </div>
+      </ion-col>
+       <ion-col>
+        <div>
+          <ion-button (click)="changeStatus()" [ngStyle]="{'background-color': buttonColor}">
+            <ion-icon name="radio-button-off-outline"></ion-icon>
+          </ion-button>
+        </div>
+      </ion-col>
+      <ion-col>
+        <div>
+          <ion-button (click)="changeStatus()" [ngStyle]="{'background-color': buttonColor}">
+            <ion-icon name="radio-button-off-outline"></ion-icon>
+          </ion-button>
+        </div>
+      </ion-col>
+      <ion-col>
+        <div>
+          <ion-button [color]="buttonColor" (click)="changeStatus()">
+            <ion-icon name="radio-button-off-outline"></ion-icon>
+          </ion-button>
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid> -->
+
+</ion-content>
+
+<ion-footer>
+  <ion-grid>
+    <ion-row no-padding no-margin>
+      <ion-toolbar class="footerclass">
+        <ion-col class="ion-no-padding">
+          <ion-button (click)="goToDashboard()">
+            <ion-icon slot="icon-only" name="stats-chart" size="large"></ion-icon>
+          </ion-button>
+        </ion-col>
+        <ion-col class="ion-no-padding">
+          <ion-button (click)="goToNewEntry()">
+            <ion-icon slot="icon-only" name="add" size="large"></ion-icon>
+          </ion-button>
+        </ion-col>
+        <ion-col class="ion-no-padding">
+          <ion-button (click)="goToEntryList()">
+            <ion-icon slot="icon-only" name="list" size="large"></ion-icon>
+          </ion-button>
+        </ion-col>
+        <ion-col class="ion-no-padding">
+          <ion-button>
+            <ion-icon slot="icon-only" name="medkit" size="large"></ion-icon>
+          </ion-button>
+        </ion-col>
+      </ion-toolbar>
+    </ion-row>
+  </ion-grid>
+</ion-footer>
+
