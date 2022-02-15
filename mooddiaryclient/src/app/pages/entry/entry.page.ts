@@ -52,7 +52,7 @@ export class EntryPage implements OnInit {
   public goToMedpack(){
     this.navCtrl.navigateForward('/medpack');
   }
-    // das ist noch falsch
+
   public insertNewEntry(entry){
     console.log(entry);
     //was passiert wenn man save button klickt (daten aus formular holen und dann in db speichern)

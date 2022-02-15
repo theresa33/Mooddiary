@@ -9,15 +9,16 @@ import { format, parseISO } from 'date-fns';
   styleUrls: ['./medpack.page.scss'],
 })
 export class MedpackPage implements OnInit {
-  public date;
+ public date;
 
   @ViewChild(IonDatetime, { static: true }) datetime: IonDatetime;
-  dateValue = '';
+  dateValue='';
 
   formatDate(value: string) {
     return format(parseISO(value), 'MMM dd HH:mm');
   }
 
+  //zur ausgabe
   public dates: any;
   constructor(public data: DataService, private navCtrl: NavController) {
     this.newDate;
@@ -25,10 +26,9 @@ export class MedpackPage implements OnInit {
 
    public newDate(){
     this.date = {
-      isTaken:'true',
+      isTaken: true,
       //ausgewähltes date von frontend holen und in takenDate speichern
-     // takenDate: this.dateValue,
-     takenDate:'',
+      takenDate: this.dateValue,
     };
   }
 
@@ -45,6 +45,7 @@ export class MedpackPage implements OnInit {
   //   console.log(this.datetime);
   // }
 
+
   //insertnewdate einfügen wenn backend funktionert
   public insertNewDate(date){
     this.datetime.confirm(true);
@@ -52,20 +53,8 @@ export class MedpackPage implements OnInit {
       console.log(res);
       this.date = res;
     })
+    return date;
   }
-
-
-  // changeStatus(){
-  //   if(this.toggled){
-  //     this.buttonColor = '#907F9F';
-  //     this.toggled = true;
-  //   }
-  //   else{
-  //         this.buttonColor = '#0C0C0C'; //hex code for previous color
-  //         this.toggled = false;
-  //   }
-  // }
-
 
 
 
