@@ -1,5 +1,5 @@
 import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
-import { NavController } from '@ionic/angular';
+import { LoadingController, NavController } from '@ionic/angular';
 import { DataService } from 'src/app/services/data.service';
 import { Chart, ChartConfiguration, LineController, LineElement, PointElement, LinearScale, Title, CategoryScale  } from 'chart.js';
 
@@ -10,11 +10,15 @@ import { Chart, ChartConfiguration, LineController, LineElement, PointElement, L
 })
 export class DashboardPage implements OnInit, AfterViewInit {
 
-  @ViewChild('lineCanvas') private lineCanvas: ElementRef;
+  @ViewChild('lineCanvas') lineCanvas;
 
   lineChart: any;
+  entries: any;
 
-  constructor(public data: DataService, private navCtrl: NavController, private elementRef: ElementRef, ) { }
+  public chartLabels: any = [];
+  public chartValues: any = [];
+
+  constructor(public data: DataService, private navCtrl: NavController,  public loading: LoadingController,) { }
 
   ngOnInit() {}
 
@@ -22,15 +26,32 @@ export class DashboardPage implements OnInit, AfterViewInit {
     this.lineChartMethod();
   }
 
+
+  defineChartData() {
+
+  //   let k: any;
+
+  //   this.data.getAllEntries().subscribe((res) => {
+  //     this.entries = res;
+  //   })
+
+  //   for (k in this.entries){
+  //     var point = this.entries[k];
+  //     this.chartLabels.push(point.mood);
+  //     this.chartValues.push(point.intensity);
+  // }
+
+  }
+
   lineChartMethod() {
     Chart.register(LineController, LineElement, PointElement, LinearScale, Title, CategoryScale);
     this.lineChart = new Chart(this.lineCanvas.nativeElement, {
       type: 'line',
       data: {
-        labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'November', 'December'],
+        labels: this.chartLabels,
         datasets: [
           {
-            label: 'Sell per week',
+            label: 'My Dataset',
             fill: false,
             backgroundColor: 'rgba(75,192,192,0.4)',
             borderColor: 'rgba(75,192,192,1)',
@@ -47,7 +68,7 @@ export class DashboardPage implements OnInit, AfterViewInit {
             pointHoverBorderWidth: 2,
             pointRadius: 1,
             pointHitRadius: 10,
-            data: [65, 59, 80, 81, 56, 55, 40, 10, 5, 50, 10, 15],
+            data: this.chartValues,
             spanGaps: false,
           }
         ]
