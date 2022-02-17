@@ -1,6 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { Repository } from 'typeorm';
+import { DeleteResult, Repository } from 'typeorm';
+import { isDate } from 'util/types';
 import { Entry } from './entity/Entry.entity';
 
 @Injectable()
@@ -49,7 +50,10 @@ export class EntriesService {
     return await this.entryRepository.findOne(id);
   }
 
-  public async deleteEntryByID(id: string): Promise<Entry> {
-    return await this.entryRepository.findOne(id);
-  }
+  public async deleteEntryByID(id: string): Promise<DeleteResult> {
+    return await this.entryRepository.delete(id);
+    //  await this.entryRepository.delete({id});
+    //  //return stimmt noch nicht (will in deleted_at das datum und die uhrzeit speichern)
+    //  return { deleted_at: Date.toString() };
+     }
 }

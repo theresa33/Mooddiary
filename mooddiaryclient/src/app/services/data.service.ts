@@ -32,4 +32,8 @@ export class DataService {
     return this.httpClient.get(this.API+'/dates');
   }
 
+  deleteEntrybyID(id: string): Observable<any> {
+    return this.httpClient.delete(`${this.API}/entries/${id}`);
+  }
+
 }

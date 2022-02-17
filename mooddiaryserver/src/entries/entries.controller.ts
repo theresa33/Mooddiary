@@ -34,8 +34,8 @@ export class EntriesController {
     return this.entriesService.insertNewEntry(entry);
   }
 
-  @Delete()
-  public async deleteEntrybyID(@Param() params: EntriesQueryDto): Promise<Entry> {
+  @Delete('/:id')
+  public async deleteEntrybyID(@Param() params: EntriesQueryDto): Promise<any> {
     return this.entriesService.deleteEntryByID(params.id);
   }
 }

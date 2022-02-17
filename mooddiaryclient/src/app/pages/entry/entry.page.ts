@@ -35,10 +35,11 @@ export class EntryPage implements OnInit {
     // });
 
   }
+  goToEntryList() {
+    this.navCtrl.navigateBack('/tablinks/home');
+  }
 
   public insertNewEntry(entry){
-    console.log(entry);
-    //was passiert wenn man save button klickt (daten aus formular holen und dann in db speichern)
    this.data.insertNewEntry(entry).subscribe((res) => {
      console.log(res);
      this.entry = res;

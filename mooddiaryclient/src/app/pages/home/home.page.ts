@@ -11,6 +11,7 @@ import { DataService } from 'src/app/services/data.service';
 export class HomePage implements OnInit {
 
   public entries: any;
+  public id;
   constructor(public data: DataService, private navCtrl: NavController) {
   }
 
@@ -29,7 +30,10 @@ export class HomePage implements OnInit {
     console.log(entry);
   }
 
-  // public deleteEntry(entry){
-  //   this.data.deleteEntry(entry);
-  // }
+  public deleteEntrybyID(id) {
+    this.data.deleteEntrybyID(id).subscribe((res) => {
+      this.id = res;
+      this.id.delete;
+    })
+  }
 }

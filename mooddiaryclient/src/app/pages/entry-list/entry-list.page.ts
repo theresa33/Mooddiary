@@ -10,6 +10,7 @@ import { DataService } from 'src/app/services/data.service';
 export class EntryListPage implements OnInit {
 
   public currentEntry;
+  public id;
   constructor(private data: DataService, private navCtrl: NavController) { }
 
   ngOnInit() {
@@ -22,6 +23,21 @@ export class EntryListPage implements OnInit {
 
   public goToEntryList(){
     this.navCtrl.navigateForward('tablinks/home');
+  }
+
+  // public deleteEntrybyID(id){
+  //   //da ist noch was falsch aaaaaaah
+  //   this.data.deleteEntrybyID(id).subscribe((res) => {
+  //   console.log('ist gelöscht');
+  //   this.id = res;
+  //   this.navCtrl.navigateForward('tablinks/home');
+  // })}
+
+  public deleteEntrybyID(id) {
+    this.data.deleteEntrybyID(id).subscribe((res) => {
+      this.navCtrl.navigateForward('tablinks/home');
+
+    })
   }
 
 }
