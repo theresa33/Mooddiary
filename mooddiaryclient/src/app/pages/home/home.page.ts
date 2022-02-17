@@ -23,23 +23,9 @@ export class HomePage implements OnInit {
   })}
 
 
-  public goToDashboard(){
-    this.navCtrl.navigateForward('/dashboard');
-  }
-  //newantry page could be entry list page because home is currently the list
-  public goToNewEntry(){
-    this.navCtrl.navigateForward('/entry');
-  }
-  public goToEntryList(){
-    this.navCtrl.navigateForward('/home');
-  }
-  public goToMedpack(){
-    this.navCtrl.navigateForward('/medpack');
-  }
-
   public goToEntryDetails(entry) {
     this.data.currentEntry = entry;
-    this.navCtrl.navigateForward('/entry-list');
+    this.navCtrl.navigateForward('tablinks/entry-list');
     console.log(entry);
   }
 

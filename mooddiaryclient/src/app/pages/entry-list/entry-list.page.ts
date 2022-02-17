@@ -15,24 +15,13 @@ export class EntryListPage implements OnInit {
   ngOnInit() {
   }
   public ionViewDidEnter(){
-    console.log('heeeelllllooo');
     if(this.data.currentEntry){
       this.currentEntry = this.data.currentEntry;
     }
   }
 
-  public goToDashboard(){
-    this.navCtrl.navigateForward('/dashboard');
-  }
-
-  public goToNewEntry(){
-    this.navCtrl.navigateForward('/entry');
-  }
   public goToEntryList(){
-    this.navCtrl.navigateForward('/home');
-  }
-  public goToMedpack(){
-    this.navCtrl.navigateForward('/medpack');
+    this.navCtrl.navigateForward('tablinks/home');
   }
 
 }

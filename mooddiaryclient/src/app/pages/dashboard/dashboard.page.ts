@@ -77,20 +77,6 @@ export class DashboardPage implements OnInit, AfterViewInit {
   }
 
 
-  public goToDashboard(){
-    this.navCtrl.navigateForward('/dashboard');
-  }
-  //newantry page could be entry list page because home is currently the list
-  public goToNewEntry(){
-    this.navCtrl.navigateForward('/entry');
-  }
-  public goToEntryList(){
-    this.navCtrl.navigateForward('/home');
-  }
-  public goToMedpack(){
-    this.navCtrl.navigateForward('/medpack');
-  }
-
 
 
 }

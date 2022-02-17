@@ -2,6 +2,10 @@ import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
+  {
+    path:'',
+    loadChildren: () => import('./pages/tablinks/tablinks.module').then(m => m.TablinksPageModule)
+  }
 
   // {
   //   path: 'home',

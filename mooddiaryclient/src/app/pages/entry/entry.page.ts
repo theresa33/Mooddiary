@@ -36,23 +36,6 @@ export class EntryPage implements OnInit {
 
   }
 
-  public goToEntry(){
-    this.navCtrl.navigateForward('/entry');
-  }
-  public goToDashboard(){
-    this.navCtrl.navigateForward('/dashboard');
-  }
-  //newantry page could be entry list page because home is currently the list
-  public goToNewEntry(){
-    this.navCtrl.navigateForward('/dashboard');
-  }
-  public goToEntryList(){
-    this.navCtrl.navigateForward('/home');
-  }
-  public goToMedpack(){
-    this.navCtrl.navigateForward('/medpack');
-  }
-
   public insertNewEntry(entry){
     console.log(entry);
     //was passiert wenn man save button klickt (daten aus formular holen und dann in db speichern)
@@ -60,7 +43,7 @@ export class EntryPage implements OnInit {
      console.log(res);
      this.entry = res;
     //nach speichern weiterleiten zu allen entries
-    this.navCtrl.navigateForward('/home');
+    this.navCtrl.navigateForward('/tablinks/home');
    })
     return entry;
   }
