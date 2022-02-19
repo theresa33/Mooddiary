@@ -6,12 +6,6 @@ export class Date {
     @PrimaryGeneratedColumn('uuid')
     id: string;
 
-    @Column()
-    isTaken: boolean;
-
-    @Column()
-    takenDate: string;
-
     @CreateDateColumn()
     created_at: Date; 
   

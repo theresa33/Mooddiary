@@ -4,9 +4,4 @@ export class DatesQueryDto {
     @IsString()
     id: string
   
-    @IsBoolean()
-    isTaken: boolean;
-  
-    @IsString()
-    takenDate: string;
 }
