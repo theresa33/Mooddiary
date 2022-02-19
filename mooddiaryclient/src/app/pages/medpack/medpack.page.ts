@@ -52,15 +52,9 @@ export class MedpackPage implements OnInit {
     this.data.insertNewDate(date).subscribe((res) => {
       console.log(res);
       this.date = res;
+      //neu laden damit datum aufscheint
+      location.reload();
     })
     return date;
   }
-
-  public goToEntryDetails(entry) {
-    this.data.currentEntry = entry;
-    this.navCtrl.navigateForward('/entry-list');
-    console.log(entry);
-  }
-
-
 }

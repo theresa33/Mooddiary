@@ -31,7 +31,11 @@ export class HomePage implements OnInit {
   }
 
   public deleteEntrybyID(id) {
+    //stimmmt nicht
     this.data.deleteEntrybyID(id).subscribe((res) => {
+      this.entries = this.entries.filter(e => {
+        return e.id != id
+      })
       this.id = res;
       this.id.delete;
     })

@@ -20,26 +20,40 @@ export class DashboardPage implements OnInit, AfterViewInit {
 
   constructor(public data: DataService, private navCtrl: NavController,  public loading: LoadingController,) { }
 
+  public newEntry(){
+    this.entries = {
+      title:'',
+      mode:'',
+      intensity:'',
+      situation:''
+    };
+  }
+
   ngOnInit() {}
 
   ngAfterViewInit() {
+    this.defineChartData();
     this.lineChartMethod();
+    console.log('haiihihoi')
   }
 
 
   defineChartData() {
 
-  //   let k: any;
+    let k: any;
 
-  //   this.data.getAllEntries().subscribe((res) => {
-  //     this.entries = res;
-  //   })
+    this.data.getAllEntries().subscribe((res) => {
+      this.entries = res;
+      for (k in this.entries){
+        var point = this.entries[k];
+        this.chartLabels.push(point.mood);
+        this.chartValues.push(point.intensity);
+    }
+    console.log(this.entries);
+    console.log(this.chartLabels);
+    })
 
-  //   for (k in this.entries){
-  //     var point = this.entries[k];
-  //     this.chartLabels.push(point.mood);
-  //     this.chartValues.push(point.intensity);
-  // }
+
 
   }
 
