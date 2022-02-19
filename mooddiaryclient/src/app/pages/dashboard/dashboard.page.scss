@@ -1,11 +1,19 @@
-.header-class-toolbar{
-  --min-height: 70px;
- }
+// .header-class-toolbar{
+//   --min-height: 70px;
+//  }
 
- .header-class-title{
-  background-color: #69DC9E;
- }
+//  .header-class-title{
+//   background-color: #69DC9E;
+//  }
 
 ion-toolbar, ion-toolbar-content {
+  align-items: center;
+}
+
+ion-toolbar{
+  --background: #69DC9E;
+  //--color: white;
+  min-height: 70px;
+  font-size: large;
   align-items: center;
 }
