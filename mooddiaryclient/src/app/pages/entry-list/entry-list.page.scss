@@ -3,7 +3,7 @@
  }
 
  .header-class-title{
-  background-color: #69DC9E;
+  color: #822ccc;
  }
 
 .entry-title {
@@ -11,4 +11,10 @@
   align-items: center;
   font-size: large;
 }
-
+ion-toolbar{
+  --background: #69DC9E;
+  //--color: white;
+  min-height: 70px;
+  font-size: large;
+  align-items: center;
+}

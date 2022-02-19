@@ -1,15 +1,12 @@
-.header-class-toolbar{
-  --min-height: 70px;
- }
+ion-toolbar{
+  --background: #69DC9E;
+  //--color: white;
+  min-height: 70px;
+  font-size: large;
+}
 
- .header-class-title{
-  background-color: #69DC9E;
- }
-
-
- .pilltaken {
-   width: 100%;
-   text-align: center;
+.header-class-title{
+  color: #822ccc;
  }
 
 
