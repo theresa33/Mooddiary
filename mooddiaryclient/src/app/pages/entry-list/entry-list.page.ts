@@ -33,11 +33,11 @@ export class EntryListPage implements OnInit {
   //   this.navCtrl.navigateForward('tablinks/home');
   // })}
 
-  public deleteEntrybyID(id) {
-    this.data.deleteEntrybyID(id).subscribe((res) => {
-      this.navCtrl.navigateForward('tablinks/home');
+  // public deleteEntrybyID(id) {
+  //   // this.data.deleteEntrybyID(id).subscribe((res) => {
+  //   //   this.navCtrl.navigateForward('tablinks/home');
 
-    })
-  }
+  //   // })
+  // }
 
 }
