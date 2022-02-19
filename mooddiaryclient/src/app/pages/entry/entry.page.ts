@@ -42,12 +42,19 @@ export class EntryPage implements OnInit {
         toast.present();
       return;
     }
-   this.data.insertNewEntry(entry).subscribe((res) => {
+   this.data.insertNewEntry(entry).subscribe(async (res) => {
      console.log(res);
      this.entry = res;
      this.newEntry();
     //nach speichern weiterleiten zu allen entries
     this.navCtrl.navigateForward('/tablinks/home');
+    const toast = await this.toastController.create({
+      message: 'Please insert every aspect.',
+      color: 'danger',
+      position: 'middle',
+      duration: 2000,
+      });
+      toast.present();
 
 
    })
