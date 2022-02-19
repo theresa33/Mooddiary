@@ -36,7 +36,7 @@ export class EntryPage implements OnInit {
       const toast = await this.toastController.create({
         message: 'Please insert every aspect.',
         color: 'danger',
-        position: 'middle',
+        position: 'bottom',
         duration: 2000,
         });
         toast.present();
@@ -49,9 +49,9 @@ export class EntryPage implements OnInit {
     //nach speichern weiterleiten zu allen entries
     this.navCtrl.navigateForward('/tablinks/home');
     const toast = await this.toastController.create({
-      message: 'Please insert every aspect.',
+      message: 'Entry successfully added!',
       color: 'danger',
-      position: 'middle',
+      position: 'bottom',
       duration: 2000,
       });
       toast.present();

@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { NavController } from '@ionic/angular';
-import { Observable } from 'rxjs';
+import { NavController, ToastController } from '@ionic/angular';
 import { DataService } from 'src/app/services/data.service';
 
 @Component({
@@ -12,7 +11,7 @@ export class HomePage implements OnInit {
 
   public entries: any;
   public id;
-  constructor(public data: DataService, private navCtrl: NavController) {
+  constructor(public data: DataService, private navCtrl: NavController, public toastController: ToastController) {
   }
 
   ngOnInit() {}
@@ -32,12 +31,19 @@ export class HomePage implements OnInit {
 
   public deleteEntrybyID(id) {
     //stimmmt nicht
-    this.data.deleteEntrybyID(id).subscribe((res) => {
+    this.data.deleteEntrybyID(id).subscribe(async (res) => {
       this.entries = this.entries.filter(e => {
         return e.id != id
       })
       this.id = res;
       this.id.delete;
+      const toast = await this.toastController.create({
+        message: 'Entry successfully deleted!',
+        color: 'danger',
+        position: 'bottom',
+        duration: 2000,
+        });
+        toast.present();
     })
   }
 }
