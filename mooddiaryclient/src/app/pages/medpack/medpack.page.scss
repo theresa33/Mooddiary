@@ -3,10 +3,18 @@ ion-toolbar{
   //--color: white;
   min-height: 70px;
   font-size: large;
+  display: flex;
+  align-items: center;
 }
 
 .header-class-title{
   color: #822ccc;
+ }
+
+ .toolbar-title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
  }
 
 
