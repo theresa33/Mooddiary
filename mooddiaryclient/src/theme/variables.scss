@@ -6,50 +6,50 @@
 
   //backround
   --ion-background-color: #FFFFFF;
-  --ion-font-family: -apple-system, BlinkMacSystemFont, 'Helvetica Neue', 'Roboto', sans-serif;
+  --ion-font-family: -apple-system, BlinkMacSystemFont, 'Insignia','Helvetica Neue', 'Roboto', sans-serif;
   /** primary **/
-  --ion-color-primary: #69DC9E;
-  --ion-color-primary-rgb: 105, 220, 158;
-  --ion-color-primary-contrast: #172be4;
-  --ion-color-primary-contrast-rgb: 103, 117, 117;
+  --ion-color-primary: #e9d768;
+  --ion-color-primary-rgb: 233, 215, 104;
+  --ion-color-primary-contrast: #39393a;
+  --ion-color-primary-contrast-rgb: 57, 57, 58;
   --ion-color-primary-shade: #677575;
   --ion-color-primary-tint: #DB7469;
 
   /** secondary **/
-  --ion-color-secondary: #DB7469;
-  --ion-color-secondary-rgb: 230, 199, 156;
-  --ion-color-secondary-contrast: #ffffff;
-  --ion-color-secondary-contrast-rgb: 255, 255, 255;
+  --ion-color-secondary: #297373;
+  --ion-color-secondary-rgb: 42, 225, 115;
+  --ion-color-secondary-contrast: #e9d768;
+  --ion-color-secondary-contrast-rgb: 233, 215, 104;
   --ion-color-secondary-shade: #907F9F;
   --ion-color-secondary-tint: #907F9F;
 
   /** tertiary **/
-  --ion-color-tertiary: #5260ff;
-  --ion-color-tertiary-rgb: 82, 96, 255;
-  --ion-color-tertiary-contrast: #ffffff;
-  --ion-color-tertiary-contrast-rgb: 255, 255, 255;
+  --ion-color-tertiary: #39393a;
+  --ion-color-tertiary-rgb: 57, 57, 58;
+  --ion-color-tertiary-contrast: #e6e6e6;
+  --ion-color-tertiary-contrast-rgb: 230, 239, 230;
   --ion-color-tertiary-shade: #4854e0;
   --ion-color-tertiary-tint: #6370ff;
 
   /** success **/
-  --ion-color-success: #2dd36f;
-  --ion-color-success-rgb: 45, 211, 111;
+  --ion-color-success: #297373;
+  --ion-color-success-rgb: 42, 225, 115;
   --ion-color-success-contrast: #ffffff;
   --ion-color-success-contrast-rgb: 255, 255, 255;
   --ion-color-success-shade: #28ba62;
   --ion-color-success-tint: #42d77d;
 
   /** warning **/
-  --ion-color-warning: #ffc409;
-  --ion-color-warning-rgb: 255, 196, 9;
+  --ion-color-warning: #f13c3c;
+  --ion-color-warning-rgb: 241, 60, 60;
   --ion-color-warning-contrast: #000000;
   --ion-color-warning-contrast-rgb: 0, 0, 0;
   --ion-color-warning-shade: #e0ac08;
   --ion-color-warning-tint: #ffca22;
 
   /** danger **/
-  --ion-color-danger: #a770d6;
-  --ion-color-danger-rgb: 235, 68, 90;
+  --ion-color-danger: #f13c3c;
+  --ion-color-danger-rgb: 241, 60, 60;
   --ion-color-danger-contrast: #ffffff;
   --ion-color-danger-contrast-rgb: 255, 255, 255;
   --ion-color-danger-shade: #cf3c4f;

@@ -34,7 +34,6 @@ export class DashboardPage implements OnInit, AfterViewInit {
   ngAfterViewInit() {
     this.defineChartData();
     this.lineChartMethod();
-    console.log('haiihihoi')
   }
 
 
@@ -67,18 +66,18 @@ export class DashboardPage implements OnInit, AfterViewInit {
           {
             label: 'My Dataset',
             fill: false,
-            backgroundColor: 'rgba(93,211,158,0.4)',
-            borderColor: 'rgba(93,211,158,1)',
+            //backgroundColor: 'rgba(93,211,158,0.4)',
+            borderColor: 'rgba(255,255,255,1)',
             borderCapStyle: 'butt',
             borderDash: [],
             borderDashOffset: 0.0,
             borderJoinStyle: 'miter',
-            pointBorderColor: 'rgba(75,192,192,1)',
-            pointBackgroundColor: '#fff',
+           // pointBorderColor: 'rgba(75,192,192,1)',
+           // pointBackgroundColor: '#fff',
             pointBorderWidth: 1,
             pointHoverRadius: 5,
-            pointHoverBackgroundColor: 'rgba(9,22,141,1)',
-            pointHoverBorderColor: 'rgba(9,22,141,1)',
+          //  pointHoverBackgroundColor: 'rgba(9,22,141,1)',
+          //  pointHoverBorderColor: 'rgba(9,22,141,1)',
             pointHoverBorderWidth: 2,
             pointRadius: 1,
             pointHitRadius: 10,

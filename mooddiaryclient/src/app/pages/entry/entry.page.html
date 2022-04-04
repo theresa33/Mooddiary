@@ -1,14 +1,13 @@
-<ion-header [translucent]="true">
-  <ion-toolbar class="header-class-toolbar">
-    <ion-title class="header-class-title">
-     New Entry
+<ion-header>
+  <ion-toolbar color="secondary">
+    <ion-title size="large" class="ion-text-center">
+      New Entry
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-
-  <ion-item-divider color="light">Add an new Entry here </ion-item-divider>
+  <ion-card>
     <ion-item>
       <ion-label position="floating">Title</ion-label>
       <ion-input [(ngModel)]="entry.title"></ion-input>
@@ -42,65 +41,6 @@
         </ion-button>
       </ion-col>
     </ion-row>
-
-
+  </ion-card>
 </ion-content>
 
-<!-- <ion-footer>
-  <ion-footer>
-    <ion-grid>
-      <ion-row no-padding no-margin>
-        <ion-toolbar class="footerclass">
-          <ion-col class="ion-no-padding">
-            <ion-button (click)="goToDashboard()">
-              <ion-icon slot="icon-only" name="stats-chart" size="large"></ion-icon>
-            </ion-button>
-          </ion-col>
-          <ion-col class="ion-no-padding">
-            <ion-button>
-              <ion-icon slot="icon-only" name="add" size="large"></ion-icon>
-            </ion-button>
-          </ion-col>
-          <ion-col class="ion-no-padding">
-            <ion-button (click)="goToEntryList()">
-              <ion-icon slot="icon-only" name="list" size="large"></ion-icon>
-            </ion-button>
-          </ion-col>
-          <ion-col class="ion-no-padding">
-            <ion-button (click)="goToMedpack()">
-              <ion-icon slot="icon-only" name="medkit" size="large"></ion-icon>
-            </ion-button>
-          </ion-col>
-        </ion-toolbar>
-      </ion-row>
-    </ion-grid>
-  </ion-footer> -->
-  <!-- <ion-grid>
-    <ion-row>
-      <ion-toolbar color="medium">
-        <ion-buttons slot="bottom">
-          <ion-col>
-            <ion-button (click)="goToDashboard()">
-              <ion-icon slot="icon-only" name="stats-chart" size="large"></ion-icon>
-            </ion-button>
-          </ion-col>
-          <ion-col>
-            <ion-button (click)="goToNewEntry()">
-              <ion-icon slot="icon-only" name="add" size="large"></ion-icon>
-            </ion-button>
-          </ion-col>
-          <ion-col>
-            <ion-button (click)="goToEntryList()">
-              <ion-icon slot="icon-only" name="list" size="large"></ion-icon>
-            </ion-button>
-          </ion-col>
-          <ion-col>
-            <ion-button color="danger" (click)="goToMedpack()">
-              <ion-icon slot="icon-only" name="medkit" size="large"></ion-icon>
-            </ion-button>
-          </ion-col>
-        </ion-buttons>
-      </ion-toolbar>
-    </ion-row>
-  </ion-grid>
-</ion-footer>-->

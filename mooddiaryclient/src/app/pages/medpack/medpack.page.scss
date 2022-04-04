@@ -1,22 +1,17 @@
-ion-toolbar{
-  --background: #69DC9E;
-  //--color: white;
-  min-height: 70px;
-  font-size: large;
-  display: flex;
-  align-items: center;
+ion-header {
+	ion-toolbar {
+    height: 120px;
+		border-radius: 0 0 60px 60px;
+		overflow: hidden;
+    display: flex;
+    align-items: center;
+	}
 }
 
-.header-class-title{
-  color: #172be4;
- }
+ion-title.title-large {
+  font-size: 40px;
 
- .toolbar-title {
-  display: flex;
-  align-items: center;
-  justify-content: center;
- }
-
-
-
-
+}
+.calendar {
+  margin-top: 20px;
+}

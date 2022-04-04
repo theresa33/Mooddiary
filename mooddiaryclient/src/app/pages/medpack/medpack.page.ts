@@ -19,6 +19,10 @@ export class MedpackPage implements OnInit {
 
   ngOnInit() {}
 
+  goToCalendar() {
+    this.navCtrl.navigateBack('/tablinks/dashboard');
+  }
+
   ionViewDidEnter(){
     this.data.getAllDates().subscribe((res) => {
    // console.log(res);
@@ -33,4 +37,5 @@ export class MedpackPage implements OnInit {
       location.reload();
     })
   }
+
 }
