@@ -25,10 +25,12 @@
   </ion-list>
 -->
 
-<ion-card>
-  <ion-button id="open-modal">Pick new Date</ion-button>
-  <ion-icon slot="end" name="clipboard-outline" color="primary"></ion-icon>
-  <ion-modal trigger="open-modal">
+<ion-card  style="text-align: center;">
+  <ion-button id="open-modal" class="align" color="secondary">
+    <ion-icon size="large" name="calendar-outline" color="tertiary" class="align"></ion-icon>
+  </ion-button>
+</ion-card>
+  <ion-modal trigger="open-modal" [swipeToClose]="true">
     <ng-template>
       <ion-content>
         <ion-datetime presentation="time-date" size="cover" class="calendar"></ion-datetime>
@@ -37,20 +39,24 @@
             <ion-button (click)="insertNewDate(date)">Pill taken</ion-button>
           </ion-col>
           <ion-col class="pilltaken">
-            <ion-button (click)="goToCalendar()">Cancel</ion-button>
+            <ion-button (click)="dismissModal()">Cancel</ion-button>
           </ion-col>
         </ion-row>
       </ion-content>
     </ng-template>
   </ion-modal>
-</ion-card>
 
-<ion-card>
 
-  <ion-list>
-    <ion-item *ngFor="let date of dates">
+
+<ion-card color="primary">
+  <ion-card-header>
+    <h2>Already taken at: </h2>
+  </ion-card-header>
+
+  <ion-list lines="none">
+    <ion-item *ngFor="let date of dates" color="primary">
       <ion-label>
-        <p>Taken at</p>
+       <!-- <p>Taken at</p> -->
         <h2>{{date.created_at | date: 'dd/MM/yyyy hh:mm'}}</h2>
       </ion-label>
     </ion-item>

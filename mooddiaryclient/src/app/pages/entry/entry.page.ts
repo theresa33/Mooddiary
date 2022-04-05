@@ -50,7 +50,7 @@ export class EntryPage implements OnInit {
     this.navCtrl.navigateForward('/tablinks/home');
     const toast = await this.toastController.create({
       message: 'Entry successfully added!',
-      color: 'danger',
+      color: 'success',
       position: 'bottom',
       duration: 2000,
       });

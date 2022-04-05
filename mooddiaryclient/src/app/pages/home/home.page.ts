@@ -39,7 +39,7 @@ export class HomePage implements OnInit {
       this.id.delete;
       const toast = await this.toastController.create({
         message: 'Entry successfully deleted!',
-        color: 'danger',
+        color: 'success',
         position: 'bottom',
         duration: 2000,
         });

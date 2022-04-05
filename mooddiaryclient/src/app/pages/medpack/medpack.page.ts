@@ -1,7 +1,8 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, HostListener, OnInit, ViewChild } from '@angular/core';
 import { IonDatetime, NavController } from '@ionic/angular';
 import { DataService } from 'src/app/services/data.service';
 import { format, parseISO } from 'date-fns';
+import { ModalController } from '@ionic/angular';
 
 @Component({
   selector: 'app-medpack',
@@ -15,12 +16,13 @@ export class MedpackPage implements OnInit {
 
 
   public dates: any;
-  constructor(public data: DataService, private navCtrl: NavController) { }
+  constructor(public data: DataService, private navCtrl: NavController, private modalController: ModalController) { }
 
   ngOnInit() {}
 
-  goToCalendar() {
-    this.navCtrl.navigateBack('/tablinks/dashboard');
+  @HostListener('window:popstate', ['$event'])
+  dismissModal() {
+    this.modalController.dismiss();
   }
 
   ionViewDidEnter(){
@@ -28,7 +30,6 @@ export class MedpackPage implements OnInit {
    // console.log(res);
     this.dates = res;
   })}
-
 
 
   public insertNewDate(date){
