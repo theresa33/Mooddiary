@@ -4,7 +4,7 @@ import { Repository } from 'typeorm';
 import { CreateUserDto } from './dto/CreateUser.dto';
 import { LoginUserDto } from './dto/LoginUser.dot';
 import { toUserDto } from './dto/toUser.dto';
-import { UserDto, UsersInfoDto } from './dto/User.dto';
+import { UserDto } from './dto/User.dto';
 import { User } from './entity/User.entity';
 
 @Injectable()
@@ -30,7 +30,7 @@ export class UsersService {
         }
 
         //Compare passwords: --> geht grad nicht wegen package
-        const areEqual = await comparePasswords(user.password, password);
+        const areEqual = await this.comparePasswords(user.password, password);
         if(!areEqual) {
             throw new HttpException('Invalid credentails', HttpStatus.UNAUTHORIZED);
         }
@@ -57,6 +57,17 @@ export class UsersService {
         await this.userRepository.save(user);
         return toUserDto(user);
     }
+    private comparePasswords(password1: string, password2: string): boolean {
+        if (!password1 || !password2) {
+            return false
+        }
+        if (password1 !== password2) {
+            return false;
+        } else {
+            return true
+        }
+    }
 }
+
 
 

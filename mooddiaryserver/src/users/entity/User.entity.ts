@@ -1,8 +1,8 @@
 import { IsNotEmpty } from "class-validator";
 import { BeforeInsert, Column, CreateDateColumn, DeleteDateColumn, Entity, PrimaryGeneratedColumn, UpdateDateColumn, VersionColumn } from "typeorm";
+import bcrypt from 'bcryptjs';
 
-
-@Entity()
+@Entity('user')
 export class User {
     
     @PrimaryGeneratedColumn('uuid')
@@ -12,14 +12,14 @@ export class User {
     @Column()
     username: string;
 
-    // email: string;
-    // @BeforeInsert() async hashPassword() {
-    //     this.password = await bycrypt.hash(this.password, 10);
-    // }
 
-    @IsNotEmpty()
     @Column()
     email: string;
+
+    @BeforeInsert() async hashPassword() {
+      this.password = await bcrypt.hash(this.password, 10);
+ }
+
 
     @IsNotEmpty()
     @Column()
