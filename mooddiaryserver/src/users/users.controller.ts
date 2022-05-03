@@ -8,8 +8,8 @@ export class UsersController {
     constructor(private readonly usersService: UsersService) {}
 
     //methoden:
-    @Post()
+/*     @Post()
     public async insertNewUser(@Body(ValidationPipe) user: User): Promise<User> {
         return await this.usersService.insertNewUser(user);
-    }
+    } */
 }

@@ -12,6 +12,9 @@ export class User {
     @Column()
     username: string;
 
+    @IsNotEmpty()
+    @Column()
+    password: string;
 
     @Column()
     email: string;
@@ -20,10 +23,6 @@ export class User {
       this.password = await bcrypt.hash(this.password, 10);
  }
 
-
-    @IsNotEmpty()
-    @Column()
-    password: string;
 
     // @CreateDateColumn()
     // created_at: Date; 

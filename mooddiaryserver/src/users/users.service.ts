@@ -11,25 +11,25 @@ import { User } from './entity/User.entity';
 export class UsersService {
 
     constructor(@InjectRepository(User)
-    private readonly userRepository: Repository<User>){}
+    private readonly userRepository: Repository<User>, ){}
 
-    public async insertNewUser(user: User): Promise<User> {
+/*     public async insertNewUser(user: User): Promise<User> {
         return await this.userRepository.save(user);
-    }
+    } */
 
     public async findOne(options?: object): Promise<UserDto> {
         const user = await this.userRepository.findOne(options);
         return toUserDto(user);
     }
 
-    public async findByLogin({username, password}: LoginUserDto): Promise<UserDto> {
+    public async findByLogin({ username, password }: LoginUserDto): Promise<UserDto> {
         const user = await this.userRepository.findOne({ where: { username } });
 
         if(!user) {
             throw new HttpException('User not found', HttpStatus.UNAUTHORIZED);
         }
 
-        //Compare passwords: --> geht grad nicht wegen package
+        //Compare passwords: 
         const areEqual = await this.comparePasswords(user.password, password);
         if(!areEqual) {
             throw new HttpException('Invalid credentails', HttpStatus.UNAUTHORIZED);
@@ -38,7 +38,7 @@ export class UsersService {
         return toUserDto(user);
     }
 
-    public async findByPayload({username}: any): Promise<UserDto>{
+    public async findByPayload({ username }: any): Promise<UserDto>{
         return await this.findOne({ where: { username } });
     }
 
