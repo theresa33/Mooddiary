@@ -6,6 +6,7 @@ import { LoginUserDto } from './dto/LoginUser.dot';
 import { toUserDto } from './dto/toUser.dto';
 import { UserDto } from './dto/User.dto';
 import { User } from './entity/User.entity';
+import bcrypt from 'bcryptjs';
 
 @Injectable()
 export class UsersService {
@@ -30,7 +31,8 @@ export class UsersService {
         }
 
         //Compare passwords: 
-        const areEqual = await this.comparePasswords(user.password, password);
+        //const areEqual = await this.comparePasswords(user.password, password);
+        const areEqual = await bcrypt.compare(user.password, password);
         if(!areEqual) {
             throw new HttpException('Invalid credentails', HttpStatus.UNAUTHORIZED);
         }
@@ -57,7 +59,7 @@ export class UsersService {
         await this.userRepository.save(user);
         return toUserDto(user);
     }
-    private comparePasswords(password1: string, password2: string): boolean {
+/*     private comparePasswords(password1: string, password2: string): boolean {
         if (!password1 || !password2) {
             return false
         }
@@ -66,7 +68,7 @@ export class UsersService {
         } else {
             return true
         }
-    }
+    } */
 }
 
 

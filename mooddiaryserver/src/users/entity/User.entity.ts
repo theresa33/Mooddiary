@@ -2,7 +2,7 @@ import { IsNotEmpty } from "class-validator";
 import { BeforeInsert, Column, CreateDateColumn, DeleteDateColumn, Entity, PrimaryGeneratedColumn, UpdateDateColumn, VersionColumn } from "typeorm";
 import bcrypt from 'bcryptjs';
 
-@Entity('user')
+@Entity()
 export class User {
     
     @PrimaryGeneratedColumn('uuid')
