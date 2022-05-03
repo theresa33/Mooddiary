@@ -1,4 +1,4 @@
-import { IsNotEmpty } from "class-validator";
+import { IsNotEmpty, IsString, Matches, MaxLength, MinLength } from "class-validator";
 import { BeforeInsert, Column, CreateDateColumn, DeleteDateColumn, Entity, PrimaryGeneratedColumn, UpdateDateColumn, VersionColumn } from "typeorm";
 import bcrypt from 'bcryptjs';
 
@@ -15,13 +15,15 @@ export class User {
     @Column({unique: true})
     email: string;
 
+
     @IsNotEmpty()
     @Column()
+    @Matches(/((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$/, {message: 'password too weak'})
     password: string;
 
-    @BeforeInsert() async hashPassword() {
+/*     @BeforeInsert() async hashPassword() {
       this.password = await bcrypt.hash(this.password, 10);
-    }
+    } */
 
     @BeforeInsert()
     emailToLowerCase() {
@@ -29,17 +31,14 @@ export class User {
     }
 
 
-    // @CreateDateColumn()
-    // created_at: Date; 
+    @CreateDateColumn()
+    created_at: Date; 
 
-    // @UpdateDateColumn()
-    // updated_at: Date;
+    @UpdateDateColumn()
+    updated_at: Date;
 
-    // @DeleteDateColumn()
-    // deleted_at: Date;
-
-    // @VersionColumn()
-    // version: number;
+    @DeleteDateColumn()
+    deleted_at: Date;
 
 }
 
