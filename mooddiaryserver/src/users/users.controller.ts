@@ -20,16 +20,25 @@ export class UsersController {
         @Body('email') email: string,
         @Body('password') password: string,
     ) {
+        //chek if email already exists
+        const checkEmail = await this.usersService.findOne({email});
         const hashedPassword = await bcrypt.hash(password, 12);
+
+        if(!checkEmail){
 
         const user = await this.usersService.create({
             username,
             email,
             password: hashedPassword
         });
-        //removing password von ausgabe
-        delete user.password;
-        return user;
+            //removing password von ausgabe
+            delete user.password;
+            return user;
+        }
+        else {
+            throw new HttpException('Email is already taken', HttpStatus.BAD_REQUEST); 
+        }
+
         
     }
 
