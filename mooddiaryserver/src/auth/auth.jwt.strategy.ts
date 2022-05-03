@@ -1,8 +1,11 @@
 import { Injectable, HttpException, HttpStatus } from '@nestjs/common';
 import { PassportStrategy } from '@nestjs/passport';
-import { ExtractJwt, Strategy } from 'passport-jwt';
+import { ExtractJwt } from 'passport-jwt';
 import { UserDto } from 'src/users/dto/User.dto';
 import { AuthService } from './auth.service';
+import { Strategy } from 'passport-local';
+
+export interface JwtPayload {  username: string;}
 
 @Injectable()
 export class JwtStrategy extends PassportStrategy(Strategy) { 
@@ -21,4 +24,4 @@ export class JwtStrategy extends PassportStrategy(Strategy) {
         return user;  
     }
 }
-export interface JwtPayload {  username: string;}
+

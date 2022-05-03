@@ -6,18 +6,13 @@ import { UserDto } from 'src/users/dto/User.dto';
 import { UsersService } from 'src/users/users.service';
 import { JwtPayload } from './auth.jwt.strategy';
 
+export interface RegistrationStatus {  
+    success: boolean;  
+    message: string;
+}
 @Injectable()
 export class AuthService {
     constructor(private readonly usersService: UsersService, private readonly jwtService: JwtService,  ) {}
-
-    async validateUser(payload: JwtPayload): Promise<UserDto> {
-        const user = await this.usersService.findByPayload(payload);    
-        if (!user) {
-            throw new HttpException('Invalid token', HttpStatus.UNAUTHORIZED);    
-        }    
-        return user;  
-    }
-    
 
     async register(userDto: CreateUserDto): 
     Promise<RegistrationStatus> {
@@ -58,11 +53,16 @@ export class AuthService {
         };  
     }
 
+    async validateUser(payload: JwtPayload): Promise<UserDto> {
+        const user = await this.usersService.findByPayload(payload);    
+        if (!user) {
+            throw new HttpException('Invalid token', HttpStatus.UNAUTHORIZED);    
+        }    
+        return user;  
+    }
+
 
 }
-export interface RegistrationStatus {  
-    success: boolean;  
-    message: string;
-}
+
 //Keine ahnung ob diese zwei exports stimmen
 export interface LoginStatus {}
