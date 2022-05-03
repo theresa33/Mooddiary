@@ -5,10 +5,7 @@ import { UsersModule } from './users/users.module';
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { Entry } from './entries/entity/Entry.entity';
-import { EntriesController } from './entries/entries.controller';
 import { DatesModule } from './dates/dates.module';
-import { DatesController } from './dates/dates.controller';
-import { AuthModule } from './auth/auth.module';
 
 @Module({
   imports: [
@@ -29,7 +26,6 @@ import { AuthModule } from './auth/auth.module';
       dropSchema: false,
     }),
     TypeOrmModule.forFeature([Entry]),
-    AuthModule,
     // TypeOrmModule.forFeature([Date])
   ],
   controllers: [AppController],
