@@ -12,16 +12,21 @@ export class User {
     @Column()
     username: string;
 
+    @Column({unique: true})
+    email: string;
+
     @IsNotEmpty()
     @Column()
     password: string;
 
-    @Column()
-    email: string;
-
     @BeforeInsert() async hashPassword() {
       this.password = await bcrypt.hash(this.password, 10);
- }
+    }
+
+    @BeforeInsert()
+    emailToLowerCase() {
+      this.email = this.email.toLowerCase();
+    }
 
 
     // @CreateDateColumn()

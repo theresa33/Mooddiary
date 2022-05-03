@@ -6,19 +6,18 @@ import { LoginUserDto } from './dto/LoginUser.dot';
 import { toUserDto } from './dto/toUser.dto';
 import { UserDto } from './dto/User.dto';
 import { User } from './entity/User.entity';
+import { AuthService } from 'src/auth/auth.service';
 import bcrypt from 'bcryptjs';
 
 @Injectable()
 export class UsersService {
 
     constructor(@InjectRepository(User)
-    private readonly userRepository: Repository<User>, ){}
+    private readonly userRepository: Repository<User>){}
 
-/*     public async insertNewUser(user: User): Promise<User> {
-        return await this.userRepository.save(user);
-    } */
+    //CODE VON ANDEREM TUTORIAL ANFANG
 
-    public async findOne(options?: object): Promise<UserDto> {
+/*     public async findOne(options?: object): Promise<UserDto> {
         const user = await this.userRepository.findOne(options);
         return toUserDto(user);
     }
@@ -58,7 +57,23 @@ export class UsersService {
         const user: User = await this.userRepository.create({ username, password, email, });
         await this.userRepository.save(user);
         return toUserDto(user);
+    } */
+
+      //CODE VON ANDEREM TUTORIAL ENDE
+
+    public async create(data: any): Promise<User> {
+        return this.userRepository.save(data);
     }
+
+    public async findOne(condition: any): Promise<User> {
+        return this.userRepository.findOne(condition);
+
+    }
+
+
+
+
+
 /*     private comparePasswords(password1: string, password2: string): boolean {
         if (!password1 || !password2) {
             return false
