@@ -1,10 +1,12 @@
 import { HttpException, HttpStatus, Injectable } from '@nestjs/common';
 import { JwtService } from '@nestjs/jwt';
+import { from } from 'rxjs';
 import { CreateUserDto } from 'src/users/dto/CreateUser.dto';
 import { LoginUserDto } from 'src/users/dto/LoginUser.dot';
 import { UserDto } from 'src/users/dto/User.dto';
 import { UsersService } from 'src/users/users.service';
 import { JwtPayload } from './auth.jwt.strategy';
+import bcrypt from 'bcryptjs';
 
 export interface RegistrationStatus {  
     success: boolean;  
@@ -31,7 +33,7 @@ export class AuthService {
     return status;  
     }
 
-    
+/*     
     async login(loginUserDto: LoginUserDto): Promise<LoginStatus> {    
         // find user in db    
         const user = await this.usersService.findByLogin(loginUserDto);
@@ -42,7 +44,7 @@ export class AuthService {
         return {
             username: user.username, ...token,    
         };  
-    }
+    } */
     
     private _createToken({ username }: UserDto): any {
         const user: JwtPayload = { username };    
@@ -53,13 +55,13 @@ export class AuthService {
         };  
     }
 
-    async validateUser(payload: JwtPayload): Promise<UserDto> {
+/*     async validateUser(payload: JwtPayload): Promise<UserDto> {
         const user = await this.usersService.findByPayload(payload);    
         if (!user) {
             throw new HttpException('Invalid token', HttpStatus.UNAUTHORIZED);    
         }    
         return user;  
-    }
+    } */
 
 
 }
