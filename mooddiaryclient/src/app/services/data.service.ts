@@ -36,4 +36,12 @@ export class DataService {
     return this.httpClient.delete(`${this.API}/entries/${id}`);
   }
 
+  insertNewUser(user: any): Observable<any> {
+    return this.httpClient.post(`${this.API}/user/register`,user);
+  }
+
+  loginUser(user: any): Observable<any>{
+    return this.httpClient.post(`${this.API}/user/login`,user);
+  }
+
 }
