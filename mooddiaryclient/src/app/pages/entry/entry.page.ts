@@ -27,7 +27,7 @@ export class EntryPage implements OnInit {
   ngOnInit(): void {}
 
   goToEntryList() {
-    this.navCtrl.navigateBack('/tablinks/home');
+    this.navCtrl.navigateBack('tabs/tablinks/home');
   }
 
   public async insertNewEntry(entry){
@@ -47,7 +47,7 @@ export class EntryPage implements OnInit {
      this.entry = res;
      this.newEntry();
     //nach speichern weiterleiten zu allen entries
-    this.navCtrl.navigateForward('/tablinks/home');
+    this.navCtrl.navigateForward('tabs/tablinks/home');
     const toast = await this.toastController.create({
       message: 'Entry successfully added!',
       color: 'success',

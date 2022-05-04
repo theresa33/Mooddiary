@@ -22,7 +22,7 @@ export class EntryListPage implements OnInit {
   }
 
   public goToEntryList(){
-    this.navCtrl.navigateForward('tablinks/home');
+    this.navCtrl.navigateForward('/tabs/tablinks/home');
   }
 
   // public deleteEntrybyID(id){

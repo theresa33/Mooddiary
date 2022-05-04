@@ -25,7 +25,7 @@ export class HomePage implements OnInit {
 
   public goToEntryDetails(entry) {
     this.data.currentEntry = entry;
-    this.navCtrl.navigateForward('tablinks/entry-list');
+    this.navCtrl.navigateForward('/tabs/tablinks/entry-list');
     console.log(entry);
   }
 
