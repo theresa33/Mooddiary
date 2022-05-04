@@ -1,0 +1,26 @@
+ion-header {
+	ion-toolbar {
+    height: 120px;
+		border-radius: 0 0 60px 60px;
+		overflow: hidden;
+    display: flex;
+    align-items: center;
+	}
+}
+
+ion-title.title-large {
+  font-size: 40px;
+
+}
+
+#welcome{
+  height: 100%;
+  width: 80%;
+  margin: auto;
+  margin-top: 50px;
+}
+
+.font{
+  font-family: 'Franklin Gothic Book regular', 'Arial Narrow', Arial, sans-serif;
+  font-size: smaller;
+}
