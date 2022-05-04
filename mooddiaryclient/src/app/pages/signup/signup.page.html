@@ -1,0 +1,40 @@
+<ion-header>
+  <ion-toolbar color="secondary">
+    <ion-title size="large" class="ion-text-center">
+      Login
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content>
+  <div id="welcome">
+    <ion-item>
+      <ion-icon slot="start" name="person" color="secondary"></ion-icon>
+      <ion-label class="font" color="secondary">Username</ion-label>
+      <ion-input [(ngModel)]="user.username" type="text" required></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-icon slot="start" name="at-circle" color="secondary"></ion-icon>
+      <ion-label class="font" color="secondary">E-Mail</ion-label>
+      <ion-input [(ngModel)]="user.email" type="email" required></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-icon slot="start" name="key" color="secondary"></ion-icon>
+      <ion-label class="font" color="secondary">Password</ion-label>
+      <ion-input [(ngModel)]="user.password" type="password" required></ion-input>
+    </ion-item>
+    <br>
+    <br>
+    <br>
+
+    <ion-button class="font" type="submit" expand="block" color="primary" (click)="registerNewUser(user)">
+      Signup
+    </ion-button>
+
+    <ion-button style="margin-top: 4%;" class="font" type="submit" expand="block" color="tertiary" [routerLink]="['/login']">Login</ion-button>
+  </div>
+</ion-content>
+
