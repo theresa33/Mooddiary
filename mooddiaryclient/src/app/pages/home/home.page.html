@@ -10,7 +10,7 @@
 
   <ion-list>
       <ion-item-sliding *ngFor="let entry of entries">
-        <ion-card>
+        <ion-card class="card">
           <ion-item (click)="goToEntryDetails(entry)" color="primary">
             <ion-icon slot="start" name="clipboard-outline" color="secondary"></ion-icon>
             <ion-label slot="start">
