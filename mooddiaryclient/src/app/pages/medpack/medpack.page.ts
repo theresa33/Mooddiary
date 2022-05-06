@@ -1,4 +1,4 @@
-import { Component, HostListener, OnInit, ViewChild } from '@angular/core';
+import { Component, HostListener, OnInit, Query, ViewChild } from '@angular/core';
 import { IonDatetime, NavController } from '@ionic/angular';
 import { DataService } from 'src/app/services/data.service';
 import { format, parseISO } from 'date-fns';
@@ -27,8 +27,12 @@ export class MedpackPage implements OnInit {
 
   ionViewDidEnter(){
     this.data.getAllDates().subscribe((res) => {
-   // console.log(res);
+    //console.log(res);
     this.dates = res;
+    //ausgabe nach zeitpunkt sortieren
+    this.dates.sort((a: any, b: any) => {
+      return <any>new Date(b.created_at) - <any>new Date(a.created_at);
+    });
   })}
 
 
