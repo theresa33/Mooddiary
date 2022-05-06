@@ -20,6 +20,10 @@ export class HomePage implements OnInit {
     this.data.getAllEntries().subscribe((res) => {
     console.log(res);
     this.entries = res;
+    //ausgabe nach zeitpunkt sortieren
+    this.entries.sort((a: any, b: any) => {
+      return <any>new Date(b.created_at) - <any>new Date(a.created_at);
+    });
   })}
 
 
