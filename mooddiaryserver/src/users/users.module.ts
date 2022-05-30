@@ -4,13 +4,14 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { User } from './entity/User.entity';
 import { UsersController } from './users.controller';
 import { UsersService } from './users.service';
+import { PassportModule } from '@nestjs/passport';
 
 @Module({
   imports: [TypeOrmModule.forFeature([User]),
 JwtModule.register({
-  secret: 'secret',
-  signOptions: {expiresIn: '1d'}
-})],
+  secret: 'abcdABCD1234554321',
+  signOptions: {expiresIn: 3600}}),
+PassportModule.register({ defaultStrategy: 'jwt' }),],
   controllers: [UsersController],
   providers: [UsersService],
   exports: [UsersService],

@@ -34,6 +34,11 @@ const routes: Routes = [
     path:'',
     redirectTo: '/tablinks/home',
     pathMatch: 'full'
+  },
+  {
+    path:'*',
+    redirectTo: 'login',
+    pathMatch: 'full'
   }
 ];
 

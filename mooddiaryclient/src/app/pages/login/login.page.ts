@@ -38,6 +38,7 @@ export class LoginPage implements OnInit {
     this.data.loginUser(user).subscribe(async (res) => {
       console.log(res);
       this.user = res;
+      this.data.setLoggedIn(true);
 
       this.navCtrl.navigateForward('tabs/tablinks/home');
       const toast = await this.toastController.create({

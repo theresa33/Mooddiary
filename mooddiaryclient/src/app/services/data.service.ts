@@ -9,8 +9,12 @@ import { EntryListPage } from '../pages/entry-list/entry-list.page';
 export class DataService {
   private API = 'http://localhost:3000';
   public currentEntry;
+  private isLoggedIn = false;
 
-  constructor(private httpClient: HttpClient) { }
+  constructor(private httpClient: HttpClient) {
+    const isLoggedIn = localStorage.getItem('isLoggedIn');
+    this.isLoggedIn = isLoggedIn ? JSON.parse(isLoggedIn) : false;
+  }
 
   getAllEntries(): Observable<any> {
     return this.httpClient.get(this.API+'/entries');
@@ -42,6 +46,17 @@ export class DataService {
 
   loginUser(user: any): Observable<any>{
     return this.httpClient.post(`${this.API}/user/login`,user);
+  }
+
+  setLoggedIn(loggedIn: boolean){
+    this.isLoggedIn = loggedIn;
+    localStorage.setItem('isLoggedIn', loggedIn.toString());
+    console.log('setLoggedIn' + loggedIn);
+  }
+
+  getLoggedIn(): boolean{
+    console.log('getLoggedIn' + this.isLoggedIn);
+    return this.isLoggedIn;
   }
 
 }
