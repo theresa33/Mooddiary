@@ -5,7 +5,8 @@ import * as bcrypt from 'bcrypt';
 import { JwtService } from '@nestjs/jwt';
 import { Response, Request } from 'express';
 import { PassThrough } from 'stream';
-
+import { ApiOperation, ApiTags } from '@nestjs/swagger';
+@ApiTags('Usercontroller')
 @Controller('user')
 export class UsersController {
 
@@ -13,7 +14,7 @@ export class UsersController {
         private readonly usersService: UsersService,
         private jwtService: JwtService) {}
 
-
+    @ApiOperation({ summary: 'Register new user' })
     @Post('register')
     async register(
         @Body('username')username: string,
@@ -41,7 +42,7 @@ export class UsersController {
 
         
     }
-
+    @ApiOperation({ summary: 'Login user' })
     @Post('login')
     async login(
         @Body('email') email: string,
@@ -64,6 +65,7 @@ export class UsersController {
         return {message: 'success'};
     }
 
+    @ApiOperation({ summary: 'Get user' })
     @Get('user')
     async user(@Req() request: Request){
         try {
@@ -85,6 +87,7 @@ export class UsersController {
 
     }
 
+    @ApiOperation({ summary: 'Logout User' })
     @Post('logout')
     async logout(@Res({passthrough: true})response: Response){
         response.clearCookie('jwt');
