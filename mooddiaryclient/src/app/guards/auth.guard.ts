@@ -13,9 +13,7 @@ constructor(private data: DataService, private navCtrl: NavController) {}
 
 canActivate(
   next: ActivatedRouteSnapshot,
-state: RouterStateSnapshot
-
-): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
+  state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
   if (this.data.getLoggedIn() == false){
     this.navCtrl.navigateForward('/login')
     return;

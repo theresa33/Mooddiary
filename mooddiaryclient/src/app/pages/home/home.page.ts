@@ -50,4 +50,11 @@ export class HomePage implements OnInit {
         toast.present();
     })
   }
+
+  public LoggedOut() {
+    console.log('ausloggen')
+    this.navCtrl.navigateForward('/login');
+    localStorage.removeItem('isLoggedIn');
+  }
+
 }
