@@ -1,6 +1,8 @@
 import { IsNotEmpty, IsString, Matches, MaxLength, MinLength } from "class-validator";
-import { BeforeInsert, Column, CreateDateColumn, DeleteDateColumn, Entity, PrimaryGeneratedColumn, UpdateDateColumn, VersionColumn } from "typeorm";
+import { BeforeInsert, Column, CreateDateColumn, DeleteDateColumn, Entity, OneToMany, PrimaryGeneratedColumn, UpdateDateColumn, VersionColumn } from "typeorm";
 import bcrypt from 'bcryptjs';
+import { type } from "os";
+import { Entry } from "src/entries/entity/Entry.entity";
 
 @Entity()
 export class User {
@@ -30,6 +32,8 @@ export class User {
       this.email = this.email.toLowerCase();
     }
 
+    @OneToMany(type => Entry, entry => entry.user)
+    entries: Entry[]
 
     @CreateDateColumn()
     created_at: Date; 

@@ -4,4 +4,8 @@ export class EntriesQueryDto {
   @IsNotEmpty()
   @IsString()
   id: string;
+
+  @IsNotEmpty()
+  @IsString()
+  userId: string;
 }

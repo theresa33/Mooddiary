@@ -1,6 +1,8 @@
 /* eslint-disable prettier/prettier */
-import { Entity, PrimaryGeneratedColumn, Column, CreateDateColumn, DeleteDateColumn, UpdateDateColumn, VersionColumn } from 'typeorm';
+import { Entity, PrimaryGeneratedColumn, Column, CreateDateColumn, DeleteDateColumn, UpdateDateColumn, VersionColumn, ManyToOne, JoinColumn } from 'typeorm';
 import { IsNotEmpty } from 'class-validator';
+import { type } from 'os';
+import { User } from 'src/users/entity/User.entity';
 
 @Entity()
 export class Entry {
@@ -23,6 +25,12 @@ export class Entry {
   @IsNotEmpty()
   @Column()
   situation: string;
+
+  // @Column()
+  // userId: string;
+
+  @ManyToOne(type => User, user => user.entries)
+  user: User;
 
   @Column()
   active: boolean;

@@ -50,6 +50,10 @@ export class EntriesService {
     return await this.entryRepository.findOne(id);
   }
 
+  // public async getEntriesByUserId(userId: string): Promise<Entry> {
+  //   return await this.entryRepository.findOne(userId);
+  // }
+
   public async deleteEntryByID(id: string): Promise<DeleteResult> {
     return await this.entryRepository.delete(id);
     //  await this.entryRepository.delete({id});
