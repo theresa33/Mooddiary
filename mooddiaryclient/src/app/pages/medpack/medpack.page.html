@@ -54,9 +54,11 @@
   </ion-card-header>
 
   <ion-list lines="none">
+    <!-- <ion-item *ngFor="let date of dates; trackBy: trackByfn; let i = index" color="primary" > -->
     <ion-item *ngFor="let date of dates" color="primary">
+
       <ion-label>
-       <!-- <p>Taken at</p> -->
+       <!-- <h2 *ngIf="i<3">{{date.created_at | date: 'dd/MM/yyyy hh:mm'}}</h2> -->
         <h2>{{date.created_at | date: 'dd/MM/yyyy hh:mm'}}</h2>
       </ion-label>
     </ion-item>
