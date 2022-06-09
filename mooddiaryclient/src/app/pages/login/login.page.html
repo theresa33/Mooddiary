@@ -29,6 +29,14 @@
     </ion-button>
 
     <ion-button style="margin-top: 4%;" class="font" type="submit" expand="block" color="tertiary" [routerLink]="['/signup']">Create Account</ion-button>
+    <div class="vertical-center">
+      <ion-button color="secondary" (click)="helpAlert()">
+        <ion-icon name="information-circle-outline"></ion-icon>
+      </ion-button>
+      <ion-button color="secondary" (click)="infoAlert()">
+        <ion-icon name="help-outline"></ion-icon>
+      </ion-button>
+    </div>
   </div>
 </ion-content>
 
