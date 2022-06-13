@@ -6,26 +6,62 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-  <ion-card class="transform" color="primary">
-    <ion-card-header>
-      <ion-card-title>Mood</ion-card-title>
-      <ion-card-subtitle>Illustration of my mood and the according intensity</ion-card-subtitle>
-    </ion-card-header>
-    <ion-card-content>
-      <canvas #lineCanvas></canvas>
-    </ion-card-content>
-  </ion-card>
+ <ion-content>
+  <ion-slides pager="true" [options]="slideOpts">
+    <ion-slide>
+      <ion-card class="transform" color="primary">
+        <ion-card-header>
+          <ion-card-title>Mood</ion-card-title>
+          <ion-card-subtitle>Illustration of my mood and the according intensity</ion-card-subtitle>
+        </ion-card-header>
+        <ion-card-content>
+          <canvas #lineCanvas></canvas>
+        </ion-card-content>
+      </ion-card>
+    </ion-slide>
 
-  <ion-card class="transform" color="primary">
-    <ion-card-header>
-      <ion-card-title>Date</ion-card-title>
-      <ion-card-subtitle>Illustration of time</ion-card-subtitle>
-    </ion-card-header>
-    <ion-card-content>
-      <canvas #lineCanvas2></canvas>
-    </ion-card-content>
-  </ion-card>
+    <ion-slide>
+      <ion-card class="transform" color="primary">
+        <ion-card-header>
+          <ion-card-title>Pills Taken</ion-card-title>
+          <ion-card-subtitle>Illustration of Time</ion-card-subtitle>
+        </ion-card-header>
+        <ion-card-content>
+          <canvas #barCanvas></canvas>
+        </ion-card-content>
+      </ion-card>
+    </ion-slide>
+  </ion-slides>
+
+ <!-- <swiper [keyboard]="true" [pagination]="true"[zoom]="true">
+
+    <ng-template swiperSlide>
+        <ion-card class="transform" color="primary">
+          <ion-card-header>
+            <ion-card-title>Mood</ion-card-title>
+            <ion-card-subtitle>Illustration of my mood and the according intensity</ion-card-subtitle>
+          </ion-card-header>
+          <ion-card-content>
+            <canvas #lineCanvas></canvas>
+          </ion-card-content>
+        </ion-card>
+    </ng-template>
+
+    <ng-template swiperSlide>
+      <ion-card class="transform" color="primary">
+        <ion-card-header>
+          <ion-card-title>Mood</ion-card-title>
+          <ion-card-subtitle>Illustration of my mood and the according intensity</ion-card-subtitle>
+        </ion-card-header>
+        <ion-card-content>
+          <canvas #lineCanvas></canvas>
+        </ion-card-content>
+      </ion-card>
+    </ng-template>
+
+  </swiper> -->
+
+
 </ion-content>
 
 
