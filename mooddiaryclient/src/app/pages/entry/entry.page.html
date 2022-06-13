@@ -8,16 +8,31 @@
 
 <ion-content [fullscreen]="true">
   <ion-card>
-
-
     <ion-item>
       <ion-label position="floating">Title</ion-label>
       <ion-input [(ngModel)]="entry.title"></ion-input>
     </ion-item>
 
-    <ion-item>
+    <!-- <ion-item>
       <ion-label position="floating">Mood</ion-label>
       <ion-input [(ngModel)]="entry.mood"></ion-input>
+    </ion-item> -->
+
+    <ion-item>
+      <ion-list>
+        <ion-radio-group allow-empty-selection="true" name="radio-group" (ionChange)="radioGroupChange($event)" #radioGroup [(ngModel)]="entry.mood">
+        <ion-grid>
+          <ion-row>
+            <ion-item *ngFor="let item of radio_list" (ionFocus)="radioFocus()" (ionSelect)="radioSelect($event)"
+              (ionBlur)="radioBlur()">
+              <ion-label>{{item.icon}}</ion-label>
+              <ion-radio mode="md" slot="start" name="{{item.name}}" value="{{item.value}}"
+                color="{{item.color}}" disabled="{{item.disabled}}"></ion-radio>
+            </ion-item>
+        </ion-row>
+        </ion-grid>
+        </ion-radio-group>
+      </ion-list>
     </ion-item>
 
     <ion-item>
@@ -44,5 +59,7 @@
       </ion-col>
     </ion-row>
   </ion-card>
+
+
 </ion-content>
 

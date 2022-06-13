@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { NavController } from '@ionic/angular';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { IonRadioGroup, NavController } from '@ionic/angular';
 import { DataService } from 'src/app/services/data.service';
 import { ToastController } from '@ionic/angular';
 
@@ -15,10 +15,18 @@ export class EntryPage implements OnInit {
     this.newEntry();
   }
 
+  @ViewChild('radioGroup') radioGroup: IonRadioGroup
+
+  defaultSelectedRadio = "radio_2";
+  //Get value on ionChange on IonRadioGroup
+  selectedRadioGroup: any;
+  //Get value on ionSelect on IonRadio item
+  selectedRadioItem: any;
+
   public newEntry(){
     this.entry = {
       title:'',
-      mode:'',
+      mood:'',
       intensity:'',
       situation:''
     };
@@ -59,6 +67,82 @@ export class EntryPage implements OnInit {
 
    })
   }
+  //------------------------------------------------
+
+
+  radio_list = [
+    {
+      id: '1',
+      name: 'radio_list',
+      value: 'Sehr gut',
+      text: 'Very Good',
+      disabled: false,
+      checked: false,
+      color: 'secondary',
+      icon: '😁'
+    }, {
+      id: '2',
+      name: 'radio_list',
+      value: 'Gut',
+      text: 'Good',
+      disabled: false,
+      checked: true,
+      color: 'secondary',
+      icon: '🙂'
+    }, {
+      id: '3',
+      name: 'radio_list',
+      value: 'Okey',
+      text: 'Bad',
+      disabled: false,
+      checked: false,
+      color: 'primary',
+      icon: '😐'
+    },
+    {
+      id: '4',
+      name: 'radio_list',
+      value: 'Schlecht',
+      text: 'Bad',
+      disabled: false,
+      checked: false,
+      color: 'danger',
+      icon: '☹️'
+    },
+    {
+      id: '5',
+      name: 'radio_list',
+      value: 'Sehr schlecht',
+      text: 'Bad',
+      disabled: false,
+      checked: false,
+      color: 'danger',
+      icon: '😭'
+    },
+  ];
+
+  radioGroupChange(event) {
+    console.log("radioGroupChange", event.detail);
+    this.selectedRadioGroup = event.detail;
+  }
+
+  radioFocus() {
+    console.log("radioFocus");
+  }
+  radioSelect(event) {
+    console.log("radioSelect", event.detail);
+    this.selectedRadioItem = event.detail;
+  }
+  radioBlur() {
+    console.log("radioBlur");
+  }
+
+
+  selectTwo() {
+    this.radioGroup.value = 'radio_2'
+  }
+
+
 }
 
 
