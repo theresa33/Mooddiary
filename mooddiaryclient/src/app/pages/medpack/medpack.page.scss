@@ -20,3 +20,9 @@ ion-title.title-large {
   display: inline-block;
   vertical-align: middle;
 }
+
+.center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
