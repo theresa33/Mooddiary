@@ -32,7 +32,7 @@ export class DashboardPage implements OnInit, AfterViewInit {
   public chartLabelsTwo: any = [];
 
   slideOpts = {
-    initialSlide: 1,
+    initialSlide: 0,
     speed: 400,
   };
 
