@@ -10,7 +10,8 @@ import { PassportModule } from '@nestjs/passport';
   imports: [TypeOrmModule.forFeature([User]),
 JwtModule.register({
   secret: 'abcdABCD1234554321',
-  signOptions: {expiresIn: 3600}}),
+  signOptions: {expiresIn: 3600}
+  }),
 PassportModule.register({ defaultStrategy: 'jwt' }),],
   controllers: [UsersController],
   providers: [UsersService],

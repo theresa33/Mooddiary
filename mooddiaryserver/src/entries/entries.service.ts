@@ -38,11 +38,13 @@ export class EntriesService {
     },
   ]; */
   
-  public async getAllEntries(): Promise<Entry[]> {
-    return await this.entryRepository.find();
+  public async getEntriesByUser(user: User): Promise<Entry[]> {
+    return await this.entryRepository.find({where: {user}});
   }
 
-  public async insertNewEntry(entry: Entry): Promise<Entry> {
+  public async insertNewEntry(entry: Entry, user: User): Promise<Entry> {
+    entry.user = user;
+    console.log(entry);
     return await this.entryRepository.save(entry);
   }
 

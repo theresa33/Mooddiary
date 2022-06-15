@@ -3,6 +3,7 @@ import { BeforeInsert, Column, CreateDateColumn, DeleteDateColumn, Entity, OneTo
 import bcrypt from 'bcryptjs';
 import { type } from "os";
 import { Entry } from "src/entries/entity/Entry.entity";
+import { Exclude } from "class-transformer";
 
 @Entity()
 export class User {
@@ -20,6 +21,7 @@ export class User {
 
     @IsNotEmpty()
     @Column()
+    @Exclude()
     @Matches(/((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$/, {message: 'password too weak'})
     password: string;
 
