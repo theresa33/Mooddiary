@@ -1,5 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
+import { User } from 'src/users/entity/User.entity';
 import { DeleteResult, Repository } from 'typeorm';
 import { isDate } from 'util/types';
 import { Entry } from './entity/Entry.entity';
@@ -49,6 +50,7 @@ export class EntriesService {
     //string interpolation mit diesen back tips, wir übergeben nur id weil wir nicht mehr brauchen
     return await this.entryRepository.findOne(id);
   }
+  
 
   // public async getEntriesByUserId(userId: string): Promise<Entry> {
   //   return await this.entryRepository.findOne(userId);

@@ -18,6 +18,10 @@ export class UsersService {
         return this.userRepository.findOne(condition);
 
     }
+
+    public async getuserByID(id: string): Promise<User> {
+        return await this.userRepository.findOne(id);
+      }
 }
 
 
