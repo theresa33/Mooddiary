@@ -11,32 +11,6 @@ export class EntriesService {
     @InjectRepository(Entry)
     private readonly entryRepository: Repository<Entry>,
   ) {}
-  /*   entries: EntriesModule[] = [
-    {
-      id: 1,
-      title: 'Eintrag 1',
-      mood: 'Happy',
-      intensity: 7,
-      situation: 'lernen',
-      active: true,
-    },
-    {
-      id: 2,
-      title: 'Eintrag 2',
-      mood: 'sad',
-      intensity: 3,
-      situation: 'lernen',
-      active: true,
-    },
-    {
-      id: 3,
-      title: 'Eintrag 3',
-      mood: 'gut',
-      intensity: 9,
-      situation: 'chill',
-      active: true,
-    },
-  ]; */
   
   public async getEntriesByUser(user: User): Promise<Entry[]> {
     return await this.entryRepository.find({where: {user}});
@@ -49,19 +23,11 @@ export class EntriesService {
   }
 
   public async getEntryByID(id: string): Promise<Entry> {
-    //string interpolation mit diesen back tips, wir übergeben nur id weil wir nicht mehr brauchen
     return await this.entryRepository.findOne(id);
   }
-  
-
-  // public async getEntriesByUserId(userId: string): Promise<Entry> {
-  //   return await this.entryRepository.findOne(userId);
-  // }
+ 
 
   public async deleteEntryByID(id: string): Promise<DeleteResult> {
     return await this.entryRepository.delete(id);
-    //  await this.entryRepository.delete({id});
-    //  //return stimmt noch nicht (will in deleted_at das datum und die uhrzeit speichern)
-    //  return { deleted_at: Date.toString() };
      }
 }

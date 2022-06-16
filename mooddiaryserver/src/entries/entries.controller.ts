@@ -4,7 +4,6 @@ import {
   Controller,
   Delete,
   Get,
-  // HttpCode,
   Param,
   Post,
   UseGuards,
@@ -29,23 +28,18 @@ export class EntriesController {
 
   //erste methode
   @UseGuards(AuthGuard)
-  @ApiOperation({ summary: 'Get all Entries' })
+  @ApiOperation({ summary: 'Get all Entries from User' })
   @Get()
-  // @HttpCode(501)
   public getEntriesByUser(@getUser()user: User): Promise<Entry[]> {
     return this.entriesService.getEntriesByUser(user);
   }
-  //es gibt zwei get deswegen brauchen wir einen placeholder für die id
+
   @ApiOperation({ summary: 'Get Entries by Id' })
   @Get('/:id')
   public async getEntryByID(@Param() params: EntriesQueryDto): Promise<Entry> {
     return this.entriesService.getEntryByID(params.id);
   }
 
-  // @Get('/:userId')
-  // public async getEntriesByUserId(@Param() params: EntriesQueryDto): Promise<Entry> {
-  //   return this.entriesService.getEntriesByUserId(params.userId)
-  // }
   @UseGuards(AuthGuard)
   @ApiOperation({ summary: 'Post new Entry' })
   @Post()

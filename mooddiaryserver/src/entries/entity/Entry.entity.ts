@@ -26,9 +26,6 @@ export class Entry {
   @Column()
   situation: string;
 
-  // @Column()
-  // userId: string;
-
   @ManyToOne(type => User, user => user.entries)
   user: User;
 

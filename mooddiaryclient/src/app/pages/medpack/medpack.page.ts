@@ -27,7 +27,6 @@ export class MedpackPage implements OnInit {
 
   ionViewDidEnter(){
     this.data.getAllDates().subscribe((res) => {
-    //console.log(res);
     this.dates = res;
     //ausgabe nach zeitpunkt sortieren
     this.dates.sort((a: any, b: any) => {
@@ -38,14 +37,8 @@ export class MedpackPage implements OnInit {
 
   public insertNewDate(date){
     this.data.insertNewDate(date).subscribe((res) => {
-     // console.log(res);
       location.reload();
     })
   }
-
-  // trackByfn(index, date) {
-  //   return date.uniqueValue;
-  // }
-
 
 }

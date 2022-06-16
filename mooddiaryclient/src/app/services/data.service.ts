@@ -24,9 +24,9 @@ export class DataService {
     return this.httpClient.get(`${this.API}/entries/${id}`);
   }
 //Try Out ----
-  getUserByID(id: string): Observable<any> {
-  return this.httpClient.get(`${this.API}/user/${id}`);
-}
+//   getUserByID(id: string): Observable<any> {
+//   return this.httpClient.get(`${this.API}/user/${id}`);
+// }
 // -----
 
   insertNewEntry(entry: any): Observable<any> {

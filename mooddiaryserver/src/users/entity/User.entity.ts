@@ -26,10 +26,6 @@ export class User {
     @Matches(/((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$/, {message: 'password too weak'})
     password: string;
 
-/*     @BeforeInsert() async hashPassword() {
-      this.password = await bcrypt.hash(this.password, 10);
-    } */
-
     @BeforeInsert()
     emailToLowerCase() {
       this.email = this.email.toLowerCase();

@@ -62,7 +62,6 @@ export class DashboardPage implements OnInit, AfterViewInit {
 
 
       this.defineChartDate();
-      // this.lineChartMethodTwo();
       this.barChartMethod();
 
   }
@@ -95,18 +94,13 @@ export class DashboardPage implements OnInit, AfterViewInit {
           {
             label: 'My Dataset',
             fill: false,
-            //backgroundColor: 'rgba(93,211,158,0.4)',
             borderColor: 'rgba(255,255,255,1)',
             borderCapStyle: 'butt',
             borderDash: [],
             borderDashOffset: 0.0,
             borderJoinStyle: 'miter',
-           // pointBorderColor: 'rgba(75,192,192,1)',
-           // pointBackgroundColor: '#fff',
             pointBorderWidth: 1,
             pointHoverRadius: 5,
-          //  pointHoverBackgroundColor: 'rgba(9,22,141,1)',
-          //  pointHoverBorderColor: 'rgba(9,22,141,1)',
             pointHoverBorderWidth: 2,
             pointRadius: 1,
             pointHitRadius: 10,
@@ -146,58 +140,8 @@ defineChartDate() {
 
 }
 
-// lineChartMethodTwo() {
-//   Chart.register(LineController, LineElement, PointElement, LinearScale, Title, CategoryScale, TimeScale);
-//   this.lineChartTwo = new Chart(this.lineCanvas2.nativeElement, {
-//     type: 'line',
-//     data: {
-//       labels: this.chartLabelsTwo,
-//       datasets: [
-//         {
-//           label: 'My Dataset',
-//           fill: false,
-//           //backgroundColor: 'rgba(93,211,158,0.4)',
-//           borderColor: 'rgba(255,255,255,1)',
-//           borderCapStyle: 'butt',
-//           borderDash: [],
-//           borderDashOffset: 0.0,
-//           borderJoinStyle: 'miter',
-//           // pointBorderColor: 'rgba(75,192,192,1)',
-//           // pointBackgroundColor: '#fff',
-//           pointBorderWidth: 1,
-//           pointHoverRadius: 5,
-//         //  pointHoverBackgroundColor: 'rgba(9,22,141,1)',
-//         //  pointHoverBorderColor: 'rgba(9,22,141,1)',
-//           pointHoverBorderWidth: 2,
-//           pointRadius: 1,
-//           pointHitRadius: 10,
-//           data: this.chartValuesTwo
-//         }
-//       ]
-//     },
-//     options: {
-//       responsive: true,
-//       scales: {
-//         y: {
-//           type: 'time',
-//           time: {
-//             unit: 'hour',
-//           }
-//         },
-//         x: {
-//           type: 'time',
-//           time: {
-//             unit: 'day'
-//           }
-//         }
-//     }
-//   }
-
-//   });
-// }
 barChartMethod() {
   Chart.register(BarController, LineController, LineElement, PointElement, LinearScale, BarElement, Title, CategoryScale, TimeScale);
-  // Now we need to supply a Chart element reference with an object that defines the type of chart we want to use, and the type of data we want to display.
   this.barChart = new Chart(this.barCanvas.nativeElement, {
     type: 'bar',
     data: {
