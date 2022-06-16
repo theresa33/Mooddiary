@@ -4,6 +4,7 @@ import bcrypt from 'bcryptjs';
 import { type } from "os";
 import { Entry } from "src/entries/entity/Entry.entity";
 import { Exclude } from "class-transformer";
+import { Date } from "src/dates/entity/Date.entity";
 
 @Entity()
 export class User {
@@ -36,6 +37,9 @@ export class User {
 
     @OneToMany(type => Entry, entry => entry.user)
     entries: Entry[]
+
+    @OneToMany(type => Date, date => date.user)
+    dates: Date[]
 
     @CreateDateColumn()
     created_at: Date; 
