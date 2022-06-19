@@ -10,35 +10,35 @@ export class DataService {
   private API = 'http://localhost:3000';
   public currentEntry;
   private isLoggedIn = false;
+  // public userId;
 
   constructor(private httpClient: HttpClient) {
     const isLoggedIn = localStorage.getItem('isLoggedIn');
     this.isLoggedIn = isLoggedIn ? JSON.parse(isLoggedIn) : false;
   }
 
-  getAllEntries(): Observable<any> {
-    return this.httpClient.get(this.API+'/entries');
+  getEntriesByUser(): Observable<any> {
+    // const userId = this.getUserId();
+    // return this.httpClient.get(`${this.API}/entries/?userId=${userId}`, {withCredentials:true});
+    return this.httpClient.get(`${this.API}/entries`);
+
   }
 
   getEntryByID(id: string): Observable<any> {
     return this.httpClient.get(`${this.API}/entries/${id}`);
   }
-//Try Out ----
-//   getUserByID(id: string): Observable<any> {
-//   return this.httpClient.get(`${this.API}/user/${id}`);
-// }
-// -----
 
   insertNewEntry(entry: any): Observable<any> {
     return this.httpClient.post(`${this.API}/entries`,entry);
   }
 
   insertNewDate(date: any): Observable<any> {
-    return this.httpClient.post(`${this.API}/dates`,date)
+    return this.httpClient.post(`${this.API}/dates`,date);
   }
 
-  getAllDates(): Observable<any> {
-    return this.httpClient.get(this.API+'/dates');
+  getDatesByUser(): Observable<any> {
+    // return this.httpClient.get(`${this.API}/dates/${user}`);
+     return this.httpClient.get(`${this.API}/dates`);
   }
 
   deleteEntrybyID(id: string): Observable<any> {
@@ -63,5 +63,18 @@ export class DataService {
     console.log('getLoggedIn' + this.isLoggedIn);
     return this.isLoggedIn;
   }
+
+  // getUserId(): string{
+  //   console.log('ca: ' + this.userId);
+  //   if(!!this.userId) return this.userId;
+  //   const userId = localStorage.getItem('userId');
+  //   console.log('ls: ' + userId);
+  //   return userId;
+  // }
+
+  // setUserId(userId: string ){
+  //   localStorage.setItem('userId', userId.toString());
+  //   this.userId = userId;
+  // }
 
 }

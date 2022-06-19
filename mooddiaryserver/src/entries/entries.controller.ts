@@ -6,6 +6,8 @@ import {
   Get,
   Param,
   Post,
+  Query,
+  Req,
   UseGuards,
   UseInterceptors,
   ValidationPipe,
@@ -29,8 +31,11 @@ export class EntriesController {
   //erste methode
   @UseGuards(AuthGuard)
   @ApiOperation({ summary: 'Get all Entries from User' })
-  @Get()
+  @Get('/')
   public getEntriesByUser(@getUser()user: User): Promise<Entry[]> {
+    // console.log("userId: " + JSON.stringify(query.userId));
+    // const userId = user || query.userId;
+    // return this.entriesService.getEntriesByUser(userId);
     return this.entriesService.getEntriesByUser(user);
   }
 

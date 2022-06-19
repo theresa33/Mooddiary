@@ -40,7 +40,8 @@ export class LoginPage implements OnInit {
       console.log(res);
       this.user = res;
       this.data.setLoggedIn(true);
-
+      // this.data.setUserId(res.id);
+      // console.log(this.data.getUserId());
       this.navCtrl.navigateForward('tabs/tablinks/home');
       const toast = await this.toastController.create({
       message: 'Loged in successfully',

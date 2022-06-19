@@ -13,7 +13,8 @@ export class EntriesService {
   ) {}
   
   public async getEntriesByUser(user: User): Promise<Entry[]> {
-    return await this.entryRepository.find({where: {user}});
+    const entries =  await this.entryRepository.find({where: { user}});
+    return entries;
   }
 
   public async insertNewEntry(entry: Entry, user: User): Promise<Entry> {

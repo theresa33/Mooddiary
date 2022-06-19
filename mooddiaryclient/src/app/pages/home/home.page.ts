@@ -12,19 +12,21 @@ export class HomePage implements OnInit {
   public entries: any;
   public id;
   constructor(public data: DataService, private navCtrl: NavController, public toastController: ToastController) {
+
   }
 
   ngOnInit() {}
 
   ionViewDidEnter(){
-    this.data.getAllEntries().subscribe((res) => {
-    console.log(res);
-    this.entries = res;
-    //ausgabe nach zeitpunkt sortieren
-    this.entries.sort((a: any, b: any) => {
-      return <any>new Date(b.created_at) - <any>new Date(a.created_at);
-    });
-  })}
+    // const userId = this.data.getUserId();
+    this.data.getEntriesByUser().subscribe((res) => {
+      console.log(res);
+      this.entries = res;
+      // ausgabe nach zeitpunkt sortieren
+      this.entries = this.entries.sort((a: any, b: any) => {
+        return b.created_at - a.created_at;
+      });
+    })}
 
 
   public goToEntryDetails(entry) {

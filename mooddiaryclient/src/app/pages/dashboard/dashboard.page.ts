@@ -3,9 +3,7 @@ import { LoadingController, NavController } from '@ionic/angular';
 import { DataService } from 'src/app/services/data.service';
 import { Chart, LineController, LineElement, PointElement, LinearScale, Title, CategoryScale, BarController, BarElement, TimeScale } from 'chart.js';
 import 'chartjs-adapter-date-fns';
-import toDate from 'date-fns/toDate';
 import SwiperCore, { Autoplay, Keyboard, Pagination, Scrollbar, Zoom } from 'swiper';
-import { isThisHour } from 'date-fns';
 
 SwiperCore.use([Autoplay, Keyboard, Pagination, Scrollbar, Zoom]);
 
@@ -56,13 +54,11 @@ export class DashboardPage implements OnInit, AfterViewInit {
   ngOnInit() {}
 
   ngAfterViewInit() {
-      this.defineChartData();
-      this.lineChartMethod();
+      // this.defineChartData(user);
+      // this.lineChartMethod();
 
-
-
-      this.defineChartDate();
-      this.barChartMethod();
+      // this.defineChartDate();
+      // this.barChartMethod();
 
   }
 
@@ -71,7 +67,7 @@ export class DashboardPage implements OnInit, AfterViewInit {
 
     let k: any;
 
-    this.data.getAllEntries().subscribe((res) => {
+    this.data.getEntriesByUser().subscribe((res) => {
       this.entries = res;
       for (k in this.entries){
         var point = this.entries[k];
@@ -128,11 +124,11 @@ defineChartDate() {
 
   let k: any;
 
-  this.data.getAllDates().subscribe((res) => {
+  this.data.getDatesByUser().subscribe((res) => {
     this.dates = res;
     for (k in this.dates){
       var point = this.dates[k];
-      this.chartLabelsTwo.push(point.created_at);
+      this.chartLabelsTwo.push(point.takenDate);
       this.chartValuesTwo.push(point.created_at);
   }
   console.log(this.chartLabelsTwo);
@@ -204,3 +200,4 @@ barChartMethod() {
 }
 
 }
+
