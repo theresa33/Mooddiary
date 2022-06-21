@@ -11,20 +11,23 @@ export class HomePage implements OnInit {
 
   public entries: any;
   public id;
+  public user;
+
   constructor(public data: DataService, private navCtrl: NavController, public toastController: ToastController) {
 
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+  }
 
   ionViewDidEnter(){
     // const userId = this.data.getUserId();
     this.data.getEntriesByUser().subscribe((res) => {
       console.log(res);
       this.entries = res;
-      // ausgabe nach zeitpunkt sortieren
-      this.entries = this.entries.sort((a: any, b: any) => {
-        return b.created_at - a.created_at;
+   //   ausgabe nach zeitpunkt sortieren
+      this.entries.sort((a: any, b: any) => {
+        return <any>new Date(b.created_at) - <any>new Date(a.created_at);
       });
     })}
 
@@ -52,11 +55,25 @@ export class HomePage implements OnInit {
     })
   }
 
-  public async LoggedOut() {
-    console.log('ausloggen')
-    this.navCtrl.navigateForward('/login');
+  // public async LoggedOut() {
+  //   console.log('ausloggen')
+  //   this.navCtrl.navigateForward('/login');
+  //   this.data.setLoggedIn(false);
+  //   localStorage.removeItem('isLoggedIn');
+  //   const toast = await this.toastController.create({
+  //     message: 'You are successfully logged out',
+  //     color: 'success',
+  //     position: 'bottom',
+  //     duration: 2000,
+  //     });
+  //     toast.present();
+  // }
+  public async logoutUser(user){
+    this.data.logoutUser(user).subscribe(async(res) => {
+      console.log('ausloggen')
     this.data.setLoggedIn(false);
     localStorage.removeItem('isLoggedIn');
+    this.navCtrl.navigateForward('/login');
     const toast = await this.toastController.create({
       message: 'You are successfully logged out',
       color: 'success',
@@ -64,6 +81,10 @@ export class HomePage implements OnInit {
       duration: 2000,
       });
       toast.present();
+
+    })
+
+
   }
 
 }
