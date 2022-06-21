@@ -36,10 +36,10 @@
         <ion-datetime presentation="time-date" size="cover" class="calendar"></ion-datetime>
         <ion-row>
           <ion-col class="pilltaken">
-            <ion-button (click)="insertNewDate(date)">Pill taken</ion-button>
+            <ion-button (click)="dismissModal()">Cancel</ion-button>
           </ion-col>
           <ion-col class="pilltaken">
-            <ion-button (click)="dismissModal()">Cancel</ion-button>
+            <ion-button (click)="insertNewDate(date)">Pill Taken</ion-button>
           </ion-col>
         </ion-row>
       </ion-content>
