@@ -54,11 +54,11 @@ export class DashboardPage implements OnInit, AfterViewInit {
   ngOnInit() {}
 
   ngAfterViewInit() {
-      // this.defineChartData(user);
-      // this.lineChartMethod();
+      this.defineChartData();
+      this.lineChartMethod();
 
-      // this.defineChartDate();
-      // this.barChartMethod();
+      this.defineChartDate();
+      this.barChartMethod();
 
   }
 
@@ -128,9 +128,10 @@ defineChartDate() {
     this.dates = res;
     for (k in this.dates){
       var point = this.dates[k];
-      this.chartLabelsTwo.push(point.takenDate);
+      this.chartLabelsTwo.push(point.created_at);
       this.chartValuesTwo.push(point.created_at);
   }
+
   console.log(this.chartLabelsTwo);
   })
 
@@ -166,13 +167,13 @@ barChartMethod() {
     options: {
       scales: {
         x: {
-          time: {
-            unit: this.chartLabelsTwo,
-            displayFormats: {
-              'minute': 'HH-ss',
-              'hour': 'HH-ss',
-            }
-          }
+          // time: {
+          //   unit: this.chartLabelsTwo,
+          //   displayFormats: {
+          //     'minute': 'HH-ss',
+          //     'hour': 'HH-ss',
+          //   }
+          // }
 
         },
 
@@ -180,15 +181,9 @@ barChartMethod() {
           type: 'time',
           time: {
             displayFormats: {
-              'millisecond': 'HH-ss',
-              'second': 'HH-ss',
               'minute': 'HH-ss',
               'hour': 'HH-ss',
-              'day': 'HH-ss',
-              'week': 'HH-ss',
-              'month': 'HH-ss',
-              'quarter': 'HH-ss',
-              'year': 'HH-ss',
+
             }
           }
 

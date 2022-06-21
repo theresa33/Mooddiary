@@ -20,37 +20,37 @@ export class DataService {
   getEntriesByUser(): Observable<any> {
     // const userId = this.getUserId();
     // return this.httpClient.get(`${this.API}/entries/?userId=${userId}`, {withCredentials:true});
-    return this.httpClient.get(`${this.API}/entries`);
+    return this.httpClient.get(`${this.API}/entries`, {withCredentials: true});
 
   }
 
   getEntryByID(id: string): Observable<any> {
-    return this.httpClient.get(`${this.API}/entries/${id}`);
+    return this.httpClient.get(`${this.API}/entries/${id}`, {withCredentials: true});
   }
 
   insertNewEntry(entry: any): Observable<any> {
-    return this.httpClient.post(`${this.API}/entries`,entry);
+    return this.httpClient.post(`${this.API}/entries`,entry, {withCredentials: true});
   }
 
   insertNewDate(date: any): Observable<any> {
-    return this.httpClient.post(`${this.API}/dates`,date);
+    return this.httpClient.post(`${this.API}/dates`,date, {withCredentials: true});
   }
 
   getDatesByUser(): Observable<any> {
     // return this.httpClient.get(`${this.API}/dates/${user}`);
-     return this.httpClient.get(`${this.API}/dates`);
+     return this.httpClient.get(`${this.API}/dates`, {withCredentials: true});
   }
 
   deleteEntrybyID(id: string): Observable<any> {
-    return this.httpClient.delete(`${this.API}/entries/${id}`);
+    return this.httpClient.delete(`${this.API}/entries/${id}`, {withCredentials: true});
   }
 
   insertNewUser(user: any): Observable<any> {
-    return this.httpClient.post(`${this.API}/user/register`,user);
+    return this.httpClient.post(`${this.API}/user/register`,user, {withCredentials: true});
   }
 
   loginUser(user: any): Observable<any>{
-    return this.httpClient.post(`${this.API}/user/login`,user);
+    return this.httpClient.post(`${this.API}/user/login`,user, {withCredentials: true});
   }
 
   setLoggedIn(loggedIn: boolean){

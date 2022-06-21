@@ -55,6 +55,7 @@ export class HomePage implements OnInit {
   public async LoggedOut() {
     console.log('ausloggen')
     this.navCtrl.navigateForward('/login');
+    this.data.setLoggedIn(false);
     localStorage.removeItem('isLoggedIn');
     const toast = await this.toastController.create({
       message: 'You are successfully logged out',
