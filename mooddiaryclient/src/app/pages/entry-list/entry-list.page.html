@@ -7,35 +7,86 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
+<!-- <ion-item *ngIf="currentEntry" color="light">
+  <ion-list>
+      <ion-card>
+        <ion-icon name="clipboard-outline" color="secondary"></ion-icon>
+        <ion-label>
+          <p>Titel:</p>
+        </ion-label>
+        <ion-label>
+          <h2>{{currentEntry.title}}</h2><br>
+        </ion-label>
+      </ion-card>
+
+    <ion-card>
+      <ion-icon name="clipboard-outline" color="secondary"></ion-icon>
+      <ion-label >
+        <p>Mood:</p>
+      </ion-label>
+      <ion-label>
+        <h2>{{currentEntry.mood}}</h2><br>
+      </ion-label>
+    </ion-card>
+
   <ion-card>
+    <ion-icon name="clipboard-outline" color="secondary"></ion-icon>
+    <ion-label>
+      <p>Situation:</p>
+    </ion-label>
+    <ion-label>
+      <h2>{{currentEntry.situation}}</h2><br>
+    </ion-label>
+  </ion-card>
+
+  <ion-card>
+    <ion-icon name="clipboard-outline" color="secondary"></ion-icon>
+    <ion-label>
+      <p>Created at:</p>
+    </ion-label>
+    <ion-label>
+      <h2>{{currentEntry.created_at | date: 'dd/MM/yyyy hh:mm'}}</h2><br>
+    </ion-label>
+  </ion-card>
+
+  </ion-list>
+</ion-item>
+  <ion-button (click)="goToEntryList()">
+    Back
+  </ion-button> -->
+  <!--///////////////////////////////////////////////////////////////////////////////////////////77-->
+  <ion-card color="white">
     <ion-card-header>
       <ion-card-title>My Entry</ion-card-title><br>
       <ion-card-subtitle> Details about this entry</ion-card-subtitle>
     </ion-card-header>
     <ion-card-content>
         <ion-list no-lines>
-            <ion-item *ngIf="currentEntry" color="light">
+            <ion-item *ngIf="currentEntry" color="secondary" class="rund">
               <ion-label style="white-space: pre-line">
-                <h2>Titel</h2>
-                <p>{{currentEntry.title}}</p><br>
-                <h2>Mood</h2>
-                <p>{{currentEntry.mood}}</p><br>
-                <h2>Intensity of mood</h2>
-                <p>{{currentEntry.intensity}}</p><br>
-                <h2>Sitation/Activity</h2>
-                <p>{{currentEntry.situation}}</p><br>
-                <h2>Created at</h2>
-                <p>{{currentEntry.created_at | date: 'dd/MM/yyyy hh:mm'}}</p><br>
+                <ion-icon name="book" color="tertiary"></ion-icon>
+                <!-- <p>Titel:<p> -->
+                <h2>{{currentEntry.title}}</h2><br>
+                <ion-icon name="happy" color="tertiary"></ion-icon>
+                <!-- <p>Mood:</p> -->
+                <h2>{{currentEntry.mood}}</h2><br>
+                <!-- <ion-icon name="clipboard-outline" color="secondary"></ion-icon> -->
+                <!-- <p>Intensity of mood:</p> -->
+                <!-- <h2>{{currentEntry.intensity}}</h2><br> -->
+                <ion-icon name="clipboard" color="tertiary"></ion-icon>
+                <!-- <p>Sitation/Activity:</p> -->
+                <h2>{{currentEntry.situation}}</h2><br>
+                <ion-icon name="calendar-number" color="tertiary"></ion-icon>
+                <!-- <p>Created at:</p> -->
+                <h2>{{currentEntry.created_at | date: 'dd/MM/yyyy hh:mm'}}</h2><br>
               </ion-label>
             </ion-item>
+          <ion-button (click)="goToEntryList()" class="center">
+            Back
+          </ion-button>
         </ion-list>
-        <ion-button (click)="goToEntryList()">
-          Back
-        </ion-button>
-        <!-- <ion-button (click)="deleteEntrybyID(id)">
-          Delete
-        </ion-button> -->
     </ion-card-content>
+
   </ion-card>
 </ion-content>
 
