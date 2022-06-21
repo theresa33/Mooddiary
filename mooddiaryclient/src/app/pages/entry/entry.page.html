@@ -8,9 +8,9 @@
 
 <ion-content [fullscreen]="true">
   <ion-card>
-    <ion-item>
-      <ion-label position="floating">Title</ion-label>
-      <ion-input [(ngModel)]="entry.title"></ion-input>
+    <ion-item class="color">
+      <ion-label position="floating">Title:</ion-label>
+      <ion-input [(ngModel)]="entry.title" style="color: black;"></ion-input>
     </ion-item>
 
     <!-- <ion-item>
@@ -18,8 +18,10 @@
       <ion-input [(ngModel)]="entry.mood"></ion-input>
     </ion-item> -->
 
-    <ion-item>
+    <ion-item class="color">
       <ion-list>
+        <ion-label position="floating" style="margin-bottom: 30px;">Mood:</ion-label>
+
         <ion-radio-group allow-empty-selection="true" name="radio-group" (ionChange)="radioGroupChange($event)" #radioGroup [(ngModel)]="entry.mood">
         <ion-grid>
           <ion-row>
@@ -35,14 +37,14 @@
       </ion-list>
     </ion-item>
 
-    <ion-item>
-      <ion-label position="floating">Intensity from 0 to 10</ion-label>
-      <ion-input [(ngModel)]="entry.intensity"></ion-input>
+    <ion-item class="color">
+      <ion-label position="floating">Intensity from 0 to 10:</ion-label>
+      <ion-input [(ngModel)]="entry.intensity" style="color: black;"></ion-input>
     </ion-item>
 
-    <ion-item>
-      <ion-label position="floating">Situation/Activity</ion-label>
-      <ion-input [(ngModel)]="entry.situation"></ion-input>
+    <ion-item class="color">
+      <ion-label position="floating">Situation/Activity:</ion-label>
+      <ion-input [(ngModel)]="entry.situation" style="color: black;"></ion-input>
     </ion-item>
     <br>
     <br>
