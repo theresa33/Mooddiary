@@ -120,19 +120,34 @@ export class DashboardPage implements OnInit, AfterViewInit {
 //--------------------ZWEITES CHART------------------------
 
 
+// defineChartDate() {
+
+//   let k: any;
+
+//   this.data.getDatesByUser().subscribe((res) => {
+//     this.dates = res;
+//     for (k in this.dates){
+//       var point = this.dates[k];
+//       this.chartLabelsTwo.push(point.created_at);
+//       this.chartValuesTwo.push(point.created_at);
+//   }
+
+//   console.log(this.chartLabelsTwo);
+//   })
+
+// }
 defineChartDate() {
 
   let k: any;
+  var date;
 
-  this.data.getDatesByUser().subscribe((res) => {
+  this.data.getEntriesByUser().subscribe((res) => {
     this.dates = res;
     for (k in this.dates){
       var point = this.dates[k];
       this.chartLabelsTwo.push(point.created_at);
-      this.chartValuesTwo.push(point.created_at);
+      this.chartValuesTwo.push(point.intensity);
   }
-
-  console.log(this.chartLabelsTwo);
   })
 
 }
@@ -143,23 +158,14 @@ barChartMethod() {
     type: 'bar',
     data: {
       labels: this.chartLabelsTwo,
+      // labels: [14.06, 15.06, 16.06, 17.06],
       datasets: [{
         data: this.chartValuesTwo,
         backgroundColor: [
-          'rgba(255, 99, 132, 0.2)',
-          'rgba(54, 162, 235, 0.2)',
-          'rgba(255, 206, 86, 0.2)',
-          'rgba(75, 192, 192, 0.2)',
-          'rgba(153, 102, 255, 0.2)',
-          'rgba(255, 159, 64, 0.2)'
+          'rgba(41,115,115, 0.9)',
         ],
         borderColor: [
-          'rgba(255,99,132,1)',
-          'rgba(54, 162, 235, 1)',
-          'rgba(255, 206, 86, 1)',
-          'rgba(75, 192, 192, 1)',
-          'rgba(153, 102, 255, 1)',
-          'rgba(255, 159, 64, 1)'
+          'rgba(41, 115, 115, 0.9)',
         ],
         borderWidth: 1
       }]
@@ -167,25 +173,22 @@ barChartMethod() {
     options: {
       scales: {
         x: {
+          // type: 'time',
           // time: {
-          //   unit: this.chartLabelsTwo,
-          //   displayFormats: {
-          //     'minute': 'HH-ss',
-          //     'hour': 'HH-ss',
-          //   }
+          //     displayFormats: {
+          //         quarter: 'MMM YYYY'
+          //     }
           // }
 
         },
 
         y: {
-          type: 'time',
-          time: {
-            displayFormats: {
-              'minute': 'HH-ss',
-              'hour': 'HH-ss',
-
-            }
-          }
+          // type: 'time',
+          // time: {
+          //     displayFormats: {
+          //         quarter: 'MMM YYYY'
+          //     }
+          // }
 
         }
       }
