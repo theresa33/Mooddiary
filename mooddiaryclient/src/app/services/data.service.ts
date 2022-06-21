@@ -53,6 +53,10 @@ export class DataService {
     return this.httpClient.post(`${this.API}/user/login`,user, {withCredentials: true});
   }
 
+  logoutUser(user: any): Observable<any>{
+    return this.httpClient.post(`${this.API}/user/logout`,user, {withCredentials: true})
+  }
+
   setLoggedIn(loggedIn: boolean){
     this.isLoggedIn = loggedIn;
     localStorage.setItem('isLoggedIn', loggedIn.toString());

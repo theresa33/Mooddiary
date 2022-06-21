@@ -28,11 +28,12 @@ export class MedpackPage implements OnInit {
   ionViewDidEnter(){
     this.data.getDatesByUser().subscribe((res) => {
     this.dates = res;
-    //ausgabe nach zeitpunkt sortieren
+   // ausgabe nach zeitpunkt sortieren
     this.dates.sort((a: any, b: any) => {
       return <any>new Date(b.created_at) - <any>new Date(a.created_at);
     });
-  })
+});
+  console.log(this.dates);
 }
 
 

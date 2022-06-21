@@ -50,6 +50,8 @@ export class LoginPage implements OnInit {
       duration: 2000,
     });
     toast.present();
+
+    location.reload();
     })
   }
 
