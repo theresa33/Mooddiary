@@ -45,6 +45,10 @@ export class DataService {
     return this.httpClient.delete(`${this.API}/entries/${id}`, {withCredentials: true});
   }
 
+  deleteDatebyID(id: string): Observable<any> {
+    return this.httpClient.delete(`${this.API}/dates/${id}`, {withCredentials: true});
+  }
+
   insertNewUser(user: any): Observable<any> {
     return this.httpClient.post(`${this.API}/user/register`,user, {withCredentials: true});
   }

@@ -1,5 +1,8 @@
 <ion-header>
   <ion-toolbar color="secondary">
+    <ion-button slot="end" size="small" fill="clear" (click)="logoutUser(user)">
+      <ion-icon  slot="icon-only" name="log-out-outline"></ion-icon>
+    </ion-button>
     <ion-title size="large" class="ion-text-center">
       Calendar
     </ion-title>
@@ -46,23 +49,39 @@
     </ng-template>
   </ion-modal>
 
+  <ion-list>
+    <ion-item-sliding *ngFor="let date of dates">
+      <ion-card class="card">
+        <ion-item color="primary">
+          <ion-icon slot="start" name="alarm-outline" color="secondary"></ion-icon>
+           <ion-label slot="start">
+            <p>  Taken at:</p>
+          </ion-label>
+          <ion-label >
+            <p>{{date.created_at | date: 'dd/MM/yyyy hh:mm'}}</p>
+          </ion-label>
+        </ion-item>
+        <ion-item-options side="end" >
+          <ion-item-option color="secondary" (click)="deleteDatebyID(date.id)">
+          <ion-icon slot="icon-only" name="trash"></ion-icon>
+          </ion-item-option>
+        </ion-item-options>
+      </ion-card>
+    </ion-item-sliding>
+</ion-list>
 
-
-<ion-card color="primary" class="center">
+<!-- <ion-card color="primary" class="center">
   <ion-card-header>
     <h2>Taken at: </h2>
   </ion-card-header>
   <ion-list lines="none">
-    <!-- <ion-item *ngFor="let date of dates; trackBy: trackByfn; let i = index" color="primary" > -->
     <ion-item *ngFor="let date of dates" color="primary">
-
       <ion-label class="align">
-       <!-- <h2 *ngIf="i<3">{{date.created_at | date: 'dd/MM/yyyy hh:mm'}}</h2> -->
         <h2>{{date.created_at | date: 'dd/MM/yyyy hh:mm'}}</h2>
       </ion-label>
     </ion-item>
   </ion-list>
-</ion-card>
+</ion-card> -->
 
 
 </ion-content>

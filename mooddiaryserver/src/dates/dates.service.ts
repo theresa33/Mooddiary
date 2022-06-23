@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { User } from 'src/users/entity/User.entity';
-import { Repository } from 'typeorm';
+import { DeleteResult, Repository } from 'typeorm';
 import { DatesQueryDto } from './dto/DatesQuery.dto';
 import { Date } from './entity/Date.entity';
 
@@ -21,6 +21,20 @@ export class DatesService {
             date.user = user;
             return await this.dateRepository.save(date);
      }
+
+        public async getDateByID(id: string): Promise<Date> {
+            return await this.dateRepository.findOne(id);
+        }
+
+      public async deleteDateByID(id: string): Promise<DeleteResult> {
+        return await this.dateRepository.delete(id);
+         }
+
+         public async findOne(condition: any): Promise<Date> {
+            return this.dateRepository.findOne(condition);
+    
+        }
+     
 
 
 }
