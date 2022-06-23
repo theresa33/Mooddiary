@@ -70,7 +70,7 @@ export class HomePage implements OnInit {
   // }
   public async logoutUser(user){
     this.data.logoutUser(user).subscribe(async(res) => {
-      console.log('ausloggen')
+    console.log('ausloggen')
     this.data.setLoggedIn(false);
     localStorage.removeItem('isLoggedIn');
     this.navCtrl.navigateForward('/login');
@@ -83,8 +83,6 @@ export class HomePage implements OnInit {
       toast.present();
 
     })
-
-
   }
 
 }

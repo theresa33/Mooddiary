@@ -62,7 +62,7 @@ export class UsersController {
         response.cookie('jwt', jwt, {httpOnly: true, sameSite:'none', secure:true});
 
 
-        return {message: 'success', id:user.id};
+        return {message: 'success', id:user.id, jwt};
     }
 
     @ApiOperation({ summary: 'Get user' })

@@ -36,23 +36,21 @@ export class LoginPage implements OnInit {
         toast.present();
       return;
     }
-    this.data.loginUser(user).subscribe(async (res) => {
-      console.log(res);
-      this.user = res;
-      this.data.setLoggedIn(true);
-      // this.data.setUserId(res.id);
-      // console.log(this.data.getUserId());
-      this.navCtrl.navigateForward('tabs/tablinks/home');
-      const toast = await this.toastController.create({
-      message: 'Loged in successfully',
-      color: 'success',
-      position: 'bottom',
-      duration: 2000,
-    });
-    toast.present();
-
-    location.reload();
-    })
+      this.data.loginUser(user).subscribe(async (res) => {
+        console.log(res);
+        this.user = res;
+        this.data.setLoggedIn(true);
+        // this.data.setUserId(res.id);
+        // console.log(this.data.getUserId());
+        this.navCtrl.navigateForward('tabs/tablinks/home');
+        const toast = await this.toastController.create({
+        message: 'Loged in successfully',
+        color: 'success',
+        position: 'bottom',
+        duration: 2000,
+      });
+      toast.present();
+      })
   }
 
 
