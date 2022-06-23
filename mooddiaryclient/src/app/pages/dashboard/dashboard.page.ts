@@ -1,5 +1,5 @@
 import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
-import { LoadingController, NavController } from '@ionic/angular';
+import { LoadingController, NavController, ToastController } from '@ionic/angular';
 import { DataService } from 'src/app/services/data.service';
 import { Chart, LineController, LineElement, PointElement, LinearScale, Title, CategoryScale, BarController, BarElement, TimeScale } from 'chart.js';
 import 'chartjs-adapter-date-fns';
@@ -16,6 +16,7 @@ export class DashboardPage implements OnInit, AfterViewInit {
 
   @ViewChild('lineCanvas') lineCanvas;
   @ViewChild('barCanvas')  barCanvas: ElementRef;
+
 
   lineChart: any;
   barChart: any;
@@ -34,7 +35,7 @@ export class DashboardPage implements OnInit, AfterViewInit {
     speed: 400,
   };
 
-  constructor(public data: DataService, private navCtrl: NavController,  public loading: LoadingController,) { }
+  constructor(public toastController: ToastController, public data: DataService, private navCtrl: NavController,  public loading: LoadingController,) { }
 
   public newEntry(){
     this.entries = {
@@ -173,6 +174,7 @@ barChartMethod() {
     options: {
       scales: {
         x: {
+
           // type: 'time',
           // time: {
           //     displayFormats: {
@@ -195,6 +197,23 @@ barChartMethod() {
 
     }
   });
+}
+
+public async logoutUser(user){
+  this.data.logoutUser(user).subscribe(async(res) => {
+  console.log('ausloggen')
+  this.data.setLoggedIn(false);
+  localStorage.removeItem('isLoggedIn');
+  this.navCtrl.navigateForward('/login');
+  const toast = await this.toastController.create({
+    message: 'You are successfully logged out',
+    color: 'success',
+    position: 'bottom',
+    duration: 2000,
+    });
+    toast.present();
+
+  })
 }
 
 }
